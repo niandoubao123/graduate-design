@@ -1,0 +1,231 @@
+{% extends 'layout.html' %}
+{% block main %}
+         <div class="jieshao-wrap">
+             <div class="jieshao">
+                 结婚>结婚商城
+             </div>
+         </div>
+          <!--旅拍套餐-->
+          <div class="lvpai-wrap">
+              <div class="lvpai">
+                  <div class="lvpai-top">
+                      <h1>旅拍套餐推荐</h1>
+                  </div>
+                  <div class="lvpai-middle">
+                      <div class="lvpai-middle-left lvpai-middle-show">
+                          <img src="images/lvpai1.jpg" alt="" />
+                          <div class="meng"></div>
+                          <span class="lvpai-place">厦门</span>
+                          <p class="lvpai-tittle">【大牌捡漏4999】+旅拍新趋势ins风</p>
+                          <span class="lvpai-money">￥4999</span>
+                          <p class="lvpai-store">厦门古婚纱摄影</p>
+                          <a href="###" class="lvpaigo"><span></span></a>
+                      </div>
+                      <div class="lvpai-middle-middle lvpai-middle-show">
+                          <img src="images/lvpai2.jpg" alt="" />
+                          <div class="meng"></div>
+                          <span class="lvpai-place">三亚</span>
+                          <p class="lvpai-tittle">人气推荐【补贴机票1000】12款礼服</p>
+                          <span class="lvpai-money">￥4999</span>
+                          <p class="lvpai-store">三亚米娅婚纱摄影</p>
+                          <a href="###" class="lvpaigo"><span></span></a>
+                      </div>
+                      <div class="lvpai-middle-right lvpai-middle-show">
+                          <img src="images/lvpai3.jpg" alt="" />
+                          <div class="meng"></div>
+                          <span class="lvpai-place">丽江</span>
+                          <p class="lvpai-tittle">【先拍后付】机票补贴+客栈+一价全包</p>
+                          <span class="lvpai-money">￥4999</span>
+                          <p class="lvpai-store">厦门古婚纱摄影</p>
+                          <a href="###" class="lvpaigo"><span></span></a>
+                      </div>
+                  </div>
+                  <div class="lvpai-bottom">
+                      <div class="lvpai-bottom-show lvpai-bottom-one">
+                          <img src="images/lvpai4.jpg" alt="" />
+                          <div class="meng2"></div>
+                          <div class="lvpai-bottom-xia">
+                              <p class="lvpai-btitle">【机票补贴1000元】全国包邮</p>
+                              <p class="lvpai-bstore">厦门台北纱罗婚纱摄影·厦门</p>
+                              <span class="lvpai-bmoney">￥4999</span>
+                          </div>
+                      </div>
+                      <div class="lvpai-bottom-show lvpai-bottom-two">
+                          <img src="images/lvpai5.jpg" alt="" />
+                          <div class="meng2"></div>
+                          <div class="lvpai-bottom-xia">
+                              <p class="lvpai-btitle">【国庆钜惠】3天2晚海景房</p>
+                              <p class="lvpai-bstore">提拉米苏环球摄影·三亚</p>
+                              <span class="lvpai-bmoney">￥5999</span>
+                          </div>
+                      </div>
+                      <div class="lvpai-bottom-show lvpai-bottom-three">
+                          <img src="images/lvpai6.jpg" alt="" />
+                          <div class="meng2"></div>
+                          <div class="lvpai-bottom-xia">
+                              <p class="lvpai-btitle">人气推荐【机票补贴1000元】</p>
+                              <p class="lvpai-bstore">三亚米娅婚纱摄影·三亚</p>
+                              <span class="lvpai-bmoney">￥4999</span>
+                          </div>
+                      </div>
+                      <div class="lvpai-bottom-show lvpai-bottom-four">
+                          <img src="images/lvpai7.jpg" alt="" />
+                          <div class="meng2"></div>
+                          <div class="lvpai-bottom-xia">
+                              <p class="lvpai-btitle">先拍摄后付款【海景潮拍】</p>
+                              <p class="lvpai-bstore">玛格映画全球旅拍·青岛</p>
+                              <span class="lvpai-bmoney">￥6999</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!--旅拍套餐结束-->
+          <!--旅拍城市-->
+          <div class="lvpaicity-wrap">
+              <div class="lvpaicity">
+                  <div class="lvpaicity-top">
+                      <h1>热门旅拍城市</h1>
+                  </div>
+                  <div class="lvpaicity-bottom">
+                      <ul>
+                          {% for city in citys %}
+                          <li><a href="###"><img src="/{{city.url}}" alt=""/><div class="meng3">{{city.title}}</div></a></li>
+                          {% endfor %}
+                      </ul>
+                  </div>
+                  <div class="lvpaicity-more">
+                      <a href="###">更多旅拍圣地 <span></span></a>
+                  </div>
+              </div>
+          </div>
+          <!--旅拍城市结束-->
+          <!-- 进选套餐开始 -->
+          <div class="taocan-wrap">
+              <div class="taocan">
+                  <h1 class="tit">精选套餐推荐</h1>
+                  <p class="tit">婚庆价目表，婚庆套餐报价看这里</p>
+                  <ul class="tablist">
+                      <li class="tab1 selected">婚礼策划</li>
+                      <li class="tab2">婚纱摄影</li>
+                      <li class="tab3">婚礼跟拍</li>
+                      <li class="tab4">婚礼摄影</li>
+                  </ul>
+                  <div class="tabb">
+                  <ul class="tab-select selected">
+                       {% for mallTao in mallTaos %}
+                       <li>
+                           <a href="###"><img src="\{{mallTao.url}}" alt=""></a>
+                           <div class="miaoshu">
+                               <h3>11{{mallTao.title}}</h3>
+                               <p>{{mallTao.name}}</p>
+                               <span>{{mallTao.money}}起</span>
+                           </div>
+                       </li>
+                       {% endfor %}
+                  </ul>
+                  <ul class="tab-select">
+                        {% for mallTao in mallTaos %}
+                        <li>
+                           <a href="###"><img src="\{{mallTao.url}}" alt=""></a>
+                           <div class="miaoshu">
+                               <h3>2{{mallTao.title}}</h3>
+                               <p>{{mallTao.name}}</p>
+                               <span>{{mallTao.money}}起</span>
+                           </div>
+                       </li>
+                        {% endfor %}
+                  </ul>
+                  <ul class="tab-select">
+                     {% for mallTao in mallTaos %}
+                     <li>
+                         <a href="###"><img src="\{{mallTao.url}}" alt=""></a>
+                         <div class="miaoshu">
+                             <h3>33{{mallTao.title}}</h3>
+                             <p>{{mallTao.name}}</p>
+                             <span>{{mallTao.money}}起</span>
+                         </div>
+                     </li>
+                     {% endfor %}
+                  </ul>
+                  <ul class="tab-select">
+                        {% for mallTao in mallTaos %}
+                        <li>
+                            <a href="###"><img src="\{{mallTao.url}}" alt=""></a>
+                            <div class="miaoshu">
+                                <h3>44{{mallTao.title}}</h3>
+                                <p>{{mallTao.name}}</p>
+                                <span>{{mallTao.money}}起</span>
+                            </div>
+                        </li>
+                        {% endfor %}
+                  </ul>
+                  </div>
+              </div>
+          </div>
+          <!-- 进选套餐结束 -->
+          <!-- 婚庆商家推荐开始 -->
+          <div class="taocan-wrap">
+              <div class="taocan">
+                  <h1 class="tit">婚庆商家推荐</h1>
+                  <p class="tit">新人都喜欢找这些婚庆公司策划婚礼</p>
+                  <ul class="tablist">
+                      <li class="tab1 selected">婚礼策划</li>
+                      <li class="tab2">婚纱摄影</li>
+                      <li class="tab3">婚礼跟拍</li>
+                      <li class="tab4">婚礼摄影</li>
+                  </ul>
+                  <div class="tabb">
+                      <ul class="tab-select selected">
+                          {% for mallStore in mallStores %}
+                          <li>
+                              <a href="###"><img src="\{{mallStore.url}}" alt=""></a>
+                              <div class="miaoshu">
+                                  <h3>111{{mallStore.title}}</h3>
+                                  <p>{{mallStore.name}}</p>
+                                  <span>{{mallStore.money}}起</span>
+                              </div>
+                          </li>
+                          {% endfor %}
+                      </ul>
+                      <ul class="tab-select">
+                          {% for mallStore in mallStores %}
+                          <li>
+                              <a href="###"><img src="\{{mallStore.url}}" alt=""></a>
+                              <div class="miaoshu">
+                                  <h3>222{{mallStore.title}}</h3>
+                                  <p>{{mallStore.name}}</p>
+                                  <span>{{mallStore.money}}起</span>
+                              </div>
+                          </li>
+                          {% endfor %}
+                      </ul>
+                      <ul class="tab-select">
+                          {% for mallStore in mallStores %}
+                          <li>
+                              <a href="###"><img src="\{{mallStore.url}}" alt=""></a>
+                              <div class="miaoshu">
+                                  <h3>333{{mallStore.title}}</h3>
+                                  <p>{{mallStore.name}}</p>
+                                  <span>{{mallStore.money}}起</span>
+                              </div>
+                          </li>
+                          {% endfor %}
+                      </ul>
+                      <ul class="tab-select">
+                           {% for mallStore in mallStores %}
+                           <li>
+                               <a href="###"><img src="\{{mallStore.url}}" alt=""></a>
+                               <div class="miaoshu">
+                                   <h3>44{{mallStore.title}}</h3>
+                                   <p>{{mallStore.name}}</p>
+                                   <span>{{mallStore.money}}起</span>
+                               </div>
+                           </li>
+                           {% endfor %}
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <!-- 进选套餐结束 -->
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+        <div class="jieshao-wrap">
+             <div class="jieshao">
+                 结婚>结婚用品
+             </div>
+        </div>
+         <!--结婚用品-->
+         <div class="thing-wrap">
+             <div class="thing">
+                 <div class="thing-title">
+                     <h1>结婚用品</h1>
+                 </div>
+                 <p class="small-title">接亲婚宴 / 婚庆床品 / 新娘嫁妆 / 新郎穿搭 / 睡衣胸贴 / 新娘美护</p>
+                 <div class="thing-list">
+                     <div class="thing-show thing-show-one">
+                         <img src="images/thing1.png" alt="" />
+                         <div class="meng4"></div>
+                         <div class="thing-show-xia">
+                             <span class="thing-show-title">新娘礼服</span>
+                             <span class="line"></span>
+                             <p class="thing-show-store">婚纱/秀禾服/敬酒服</p>
+                         </div>
+                     </div>
+                     <div class="thing-show thing-show-two">
+                         <img src="images/thing2.png" alt="" />
+                         <div class="meng4"></div>
+                         <div class="thing-show-xia">
+                             <span class="thing-show-title">婚房布置</span>
+                             <span class="line"></span>
+                             <p class="thing-show-store">气球/拉花纱幔/喜字</p>
+                         </div>
+                     </div>
+                     <div class="thing-show thing-show-three">
+                         <img src="images/thing3.png" alt="" />
+                         <div class="meng4"></div>
+                         <div class="thing-show-xia">
+                             <span class="thing-show-title">喜糖请柬</span>
+                             <span class="line"></span>
+                             <p class="thing-show-store">请柬/伴手礼/成品喜糖</p>
+                         </div>
+                     </div>
+                     <div class="thing-show thing-show-four">
+                         <img src="images/thing4.png" alt="" />
+                         <div class="meng4"></div>
+                         <div class="thing-show-xia">
+                             <span class="thing-show-title">婚鞋婚包</span>
+                             <span class="line"></span>
+                             <p class="thing-show-store">婚鞋/婚包/情侣拖鞋</p>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <!--结婚用品结束-->
+         {% if userInfo._id %}
+         <div class="goshop-wrap goshop-wrap-tt">
+              <div class="goshop">
+                  <form action="/createCar" method="post">
+                        {% for addCar in addCars %}
+                        <input type="hidden" id="userId" value="{{addCar.username}}">
+                        {% endfor %}
+                        <button type="submit">点击开始购物</button>
+                  </form>
+              </div>
+         </div>
+          {% else %}
+          <div class="goshop-wrap">
+              <div class="goshop">
+                  <h1>请先登录</h1>
+              </div>
+          </div>
+          {% endif %}
+         <!-- 购物车结束 -->
+{% endblock %}

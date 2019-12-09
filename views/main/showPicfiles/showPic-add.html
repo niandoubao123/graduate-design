@@ -1,0 +1,32 @@
+{% extends '../layout.html' %}
+
+{% block main %}
+<div class="jieshao-wrap">
+    <div class="jieshao">
+        结婚>晒出你的幸福
+    </div>
+</div>
+   {% if userInfo._id %}
+    <!-- 晒幸福 -->
+    <div class="shaimessage-wrap">
+        <div class="shaimessage">
+            <form action="/showPicAdd" enctype="multipart/form-data" method="post">
+                <h1>写下你想说的 / 想问的 / 想秀的 ：</h1>
+                <div class="message-title">
+                    <h2>动态标题:</h2> <input type="text" name="title" placeholder="一句话描述你想说的/想问的/想秀的">
+                </div>
+                <div class="message-content">
+                    <h2>动态内容:</h2> <textarea name="content" id="" cols="115" rows="8"
+                        placeholder="如果是问题，请详细说明哦~~~可获得更准确的回答"></textarea>
+                </div>
+                <div class="message-file">
+                    <h2>优质配图:</h2> <input type="file" name="url" />
+                </div>
+                <button type="submit" class="btn btn-success btn-lg">提交动态</button>
+            </form>
+        </div>
+    </div>
+   {%else%}
+   <p class="bgDanger" style="width: 600px;height:200px;margin:50px auto; line-height: 100px;font-size: 50px;">你还没有登录，请先登录！</p>
+   {%endif%}
+{% endblock %}

@@ -1,0 +1,48 @@
+        {% extends 'layout.html' %}
+        {% block main %}
+        <div class=" layui-tab layui-tab-card site-demo-title x-main">
+            <form class="layui-form x-center" action="" style="width:800px">
+                <div class="layui-form-pane" style="margin-top: 15px;">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">日期范围</label>
+                        <div class="layui-input-inline">
+                            <input class="layui-input" placeholder="开始日" id="LAY_demorange_s">
+                        </div>
+                        <div class="layui-input-inline">
+                            <input class="layui-input" placeholder="截止日" id="LAY_demorange_e">
+                        </div>
+                        <div class="layui-input-inline">
+                            <input type="text" name="username" placeholder="请输入用户名" autocomplete="off"
+                                class="layui-input">
+                        </div>
+                        <div class="layui-input-inline" style="width:80px">
+                            <button class="layui-btn" lay-submit="" lay-filter="sreach"><i
+                                    class="layui-icon">&#xe615;</i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()">管理员列表</button><span class="x-right"
+                    style="line-height:40px">共有数据：{{count}} 条</span></xblock>
+
+            <table class="layui-table">
+                <tr>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>密码</th>
+                    <th>是否是管理员</th>
+                </tr>
+
+                {% for user in users %}
+                <tr>
+                    <td>{{user._id.toString()}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.password}}</td>
+                    <td>
+                        {%if user.isAdmin%}是{%endif%}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endblock %}

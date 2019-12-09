@@ -1,0 +1,30 @@
+     {% extends '../layout.html' %}
+     {% block main %}
+     <div class="layui-tab layui-tab-card site-demo-title x-main">
+         <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()">图片请贴</button>
+             <button class="layui-btn layui-btn-success" onclick="delAll()"><a href="/admin/invitation" style="color:white;">返回列表</a></button>
+         </xblock>
+
+         <div class="table-responsive input-form">
+             <form action="/admin/invitationAdd" enctype="multipart/form-data" method="post">
+                 <xblock>
+                     <ul>
+                         <li>
+                             <h1>图片标题:</h1>
+                         </li>
+                         <input class="form-control input-group-sm" type="text" name="title" />
+                         <li>
+                             <h1>上传图片:</h1> <input type="file" name="url" />
+                         </li>
+                         <li>
+                             <br />
+                             <button type="submit" class="btn btn-success btn-lg">提交</button>
+                         </li>
+
+                     </ul>
+                 </xblock>
+
+             </form>
+         </div>
+     </div>
+     {% endblock %}

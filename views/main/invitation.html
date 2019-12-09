@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+         {% block main %}
+         <div class="jieshao-wrap">
+             <div class="jieshao">
+                 结婚>婚礼请柬
+             </div>
+         </div>
+         <!-- 风格分类 -->
+         <div class="leib-wrap">
+             <div class="leib">
+                 <div class="stylelei">请柬模板</div>
+                 <ul>
+                     <!-- <li><a>清新</a></lia>
+                     <li><a>中国风</a></li>
+                     <li><a>时尚</a></li>
+                     <li><a>花语</a></li>
+                     <li><a>长辈</a></li> -->
+                     <li style="width: 200px;"><a>更多免费模板请联系客服</a></li>
+                     <li style="width: 200px;"><a>右键保存打印即可使用</a></li>
+                 </ul>
+             </div>
+             
+         </div>
+         <!-- 风格分类结束 -->
+         <!-- 请柬模板开始 -->
+         <div class="invitation-wrap">
+             <div class="invitation">
+                 <ul>
+                      {% for invitation in invitations %}
+                       <li><img src="\{{invitation.url}}" alt=""><p>{{invitation.title}}</p></li>
+                      {% endfor %}
+                 </ul>
+             </div>
+         </div>
+         <!-- 请柬模板结束 -->
+{% endblock %}

@@ -1,0 +1,420 @@
+{% extends 'layout.html' %}
+{% block main %}
+    <!--上导航结束-->
+     <div class="letsgo"> 
+     <ul>
+        <li data-to="go1"><img src="images/call1.png" alt=""/><a href="###"></a><span></span></li>
+        <li data-to="go2"><img src="images/call2.png" alt=""/><a href="###"></a><span></span></li>
+        <li data-to="go3"><img src="images/call3.png" alt=""/><a href="###"></a><span></span></li>
+        <li data-to="go4"><img src="images/call4.png" alt=""/><a href="###"></a><span></span></li>
+        <li data-to="go5"><img src="images/call5.png" alt=""/><a href="###"></a><span></span></li>
+    </ul>
+     </div> 
+    <!--上轮播图-->
+    <div class="banner">
+        <div class="imglist">
+            <ul style="background-image: url('images/banner1.jpg');background-size:100% 500px;">
+                {% for pic in pics %}
+                 <li><a href="#"><img src="\{{pic.url}}" alt="" /></a></li>     
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="bannerbtn">
+            <button class="left"></button>
+            <button class="right"></button>
+        </div>
+        <div class="circle">
+            <ol>
+                <li class="current"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><i class="mmenu icon-nav-hotel"></i><a href="#">婚宴酒店</a><span class="smenu">草坪/星级</span></li>
+                <li><i class="mmenu icon-nav-cehua"></i><a href="#">婚礼策划</a><span class="smenu">室内/户外</span></li>
+                <li><i class="mmenu icon-nav-shexiang"></i><a href="#">婚纱摄影</a><span class="smenu">影楼/工作室</span></li>
+                <li><i class="mmenu icon-nav-siyi"></i><a href="#">婚礼司仪</a><span class="smenu">煽情/海派</span></li>
+                <li><i class="mmenu icon-nav-lifu"></i><a href="#">婚纱礼服</a><span class="smenu">高端定制</span></li>
+                <li><i class="mmenu icon-nav-sheying"></i><a href="#">婚纱摄影</a><span class="smenu">婚礼MV/摇臂</span></li>
+                <li><i class="mmenu icon-nav-genpai"></i><a href="#">婚礼跟拍</a><span class="smenu">纪实/双位机</span></li>
+                <li><i class="mmenu icon-nav-genzhuang"></i><a href="#">婚礼跟妆</a><span class="smenu">韩式/中式</span></li>
+                <li><i class="mmenu icon-nav-hunche"></i><a href="#">婚车租赁</a><span class="smenu">一价全包</span></li>
+            </ul>
+        </div>
+    </div>
+    <!--上轮播图结束-->
+    <!--下导航-->
+    <div class="nav-bottom">
+        <div class="nav-bottom-shang">
+            <ul>
+                <li><a href="/invite"><img src="images/nbs1.png" alt=""/><p>图片请帖</p></a></li>
+                <li><a href="/hotel"><img src="images/nbs2.png" alt=""/><p>婚庆酒店</p></a></li>
+                <li><a href="/things"><img src="images/nbs3.png" alt=""/><p>婚品采购</p></a></li>
+                <li><a href="/idea"><img src="images/nbs4.png" alt=""/><p>结婚攻略</p></a></li>
+                <li><a href="/showPic"><img src="images/nbs5.png" alt=""/><p>晒晒幸福</p></a></li>
+            </ul>
+        </div>
+        <div class="nav-bottom-xia">
+            <div class="nbxleft">
+                <div class="nbxleft-title"><h1>现在开始打造你期待的婚礼</h1></div>
+                <p class="nbxleft-smalltitle">专业婚礼顾问一对一免费解答</p>
+                <div class="nbxleft-content">
+                      <div class="nbxleft-contentright">
+                          <div class="nbxleft-contentright-info">
+                               <p class="p1">1年来，</p>
+                               <p class="p2">无数结婚男女选择豆包婚礼</p>
+                               <p class="p3">好评率近 <span>99.99%</span></p>
+                               <p class="p4">一站式婚礼，只为你期待的婚礼</p>
+                          </div>
+                          <div class="new-appointment">
+                              <input type="text" class="phone" id="phoneNumber" placeholder="请输入电话"/>
+                              <input type="text" class="nicheng" id="honeyName" placeholder="怎么称呼您"/>
+                              <div class="callbtn" id="callbtn" style="cursor: pointer; color:white;">预约咨询</div>
+                          </div>
+                      </div>
+                </div>
+            </div>
+            <div class="nbxmiddle">
+                <h1>电子请帖</h1>
+                <p>海量模板<span>联系客服</span></p>
+                <a href="/invite">点击预览</a>
+            </div>
+            <div class="nbxright">
+                <div class="nbxright-top"><h3>婚礼工具</h3></div>
+                <div class="nbxright-bottom">
+                    <ul>
+                        <li><a href="/dengji"><img src="images/nbx1.png" alt=""/><p>婚礼登记</p></a></li>
+                        <li><a href="/rili"><img src="images/nbx2.png" alt=""/><p>结婚吉日</p></a></li>
+                        <li><a ><img src="images/nbx3.png" alt=""/><p>结婚流程</p></a></li>
+                        <li><a href="###"><img src="images/nbx8.png" alt=""/><p>婚礼歌曲</p></a></li>
+                        <li><a href="###"><img src="images/nbx5.png" alt=""/><p>结婚任务</p></a></li>
+                    </ul></div>
+            </div>
+            <div class="nbxbottom">
+                <div class="nbxbottom-left"><img src="iconfont/dingwei.png" alt=""/><p>热门城市</p></div>
+                <div class="nbxbottom-right">
+                    <ul>
+                        <li><a href="###">上海</a></li>
+                        <li><a href="###">济南</a></li>
+                        <li><a href="###">郑州</a></li>
+                        <li><a href="###">武汉</a></li>
+                        <li><a href="###">厦门</a></li>
+                        <li><a href="###">大连</a></li>
+                        <li><a href="###">长沙</a></li>
+                        <li><a href="###">重庆</a></li>
+                        <li><a href="###">合肥</a></li>
+                        <li><a href="###">三亚</a></li>
+                        <li><a href="###">丽江</a></li>
+                        <li><a href="###">北京</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--下导航结束-->
+    <!--旅拍套餐-->
+    <div id="go1" class="lvpai-wrap">
+        <div class="lvpai">
+        <div class="lvpai-top">
+            <h1>旅拍套餐推荐</h1>
+        </div>
+         <div class="lvpai-bottom">
+             {% for lvpai in lvpais %}
+            <div class="lvpai-bottom-show lvpai-bottom-one">
+                <img src="/{{lvpai.url}}" alt="" />
+                <div class="meng2"></div>
+                <div class="lvpai-bottom-xia">
+                    <p class="lvpai-btitle">{{lvpai.title}}</p>
+                    <p class="lvpai-bstore">{{lvpai.place}}</p>
+                    <span class="lvpai-bmoney">{{lvpai.money}}</span>
+                </div>
+            </div>
+           {% endfor %}
+         </div>
+        </div>
+    </div>
+    <!--旅拍套餐结束-->
+    <!--旅拍城市-->
+    <div id="go2" class="lvpaicity-wrap">
+        <div class="lvpaicity">
+            <div class="lvpaicity-top">
+                <h1>热门旅拍城市</h1>
+            </div>
+            <div class="lvpaicity-bottom">
+                <ul>
+                      {% for city in citys %}
+                      <li><a href="###"><img src="/{{city.url}}" alt=""/><div class="meng3">{{city.title}}</div></a></li>
+                      {% endfor %}
+                </ul>
+            </div>
+            <div class="lvpaicity-more">
+                <a href="###">更多旅拍圣地 <span></span></a>
+            </div>
+        </div>
+    </div>
+    <!--旅拍城市结束-->
+    <!--婚礼案例-->
+    <div id="go3" class="example-wrap">
+        <div class="example">
+            <div class="example-top">
+                <h1>婚礼策划案例</h1>
+            </div>
+            <div class="example-bottom">
+                <ul class="example-bottom-wrap">
+                    <li>
+                        <ol class="example-bottom-show">
+                            {% for picc in piccs %}
+                               <li class="example-bottom-showaone">
+                                   <div class="example-showpic"><img src="\{{picc.url}}" alt="" /></div>
+                                   <div class="example-bottom-showaone-bottom">
+                                       <p>{{picc.title}}</p>
+                                       <span>{{picc.place}}</span>
+                                       <a href="###">→</a>
+                                   </div>
+                               </li>
+                            {% endfor %}
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--婚礼案例结束-->
+    <!--结婚流程-->
+    <div id="go6" class="process-wrap">
+          <div class="process">
+                <div class="process-title">
+                    <h1>结婚流程</h1>
+                </div>
+              <div class="process-list">
+                  <ul>
+                      <li>
+                          <a href="####">
+                          <span></span>
+                          <p>婚宴酒店</p>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="####">
+                              <span></span>
+                              <p>婚纱摄影</p>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="####">
+                              <span></span>
+                              <p>婚庆公司</p>
+                          </a>
+                      </li>
+                      <li>
+                           <a href="####">
+                          <span></span>
+                          <p>婚纱礼服</p>
+                          </a>
+                      </li>
+                      <li>
+                           <a href="####">
+                          <span></span>
+                          <p>婚礼请帖</p>
+                          </a>
+                      </li>
+                      <li>
+                           <a href="####">
+                          <span></span>
+                          <p>婚车租赁</p>
+                          </a>
+                      </li>
+                      <li>
+                           <a href="####">
+                          <span></span>
+                          <p>结婚用品</p>
+                          </a>
+                      </li>
+                      <li>
+                           <a href="####">
+                          <span></span>
+                          <p>举行婚礼</p>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+    </div>
+    <!--结婚流程结束-->
+    <!--结婚用品-->
+    <div id="go4" class="thing-wrap">
+        <div class="thing">
+            <div class="thing-title">
+                <h1>结婚用品</h1>
+            </div>
+            <p class="small-title">接亲婚宴 / 婚庆床品 / 新娘嫁妆 / 新郎穿搭 / 睡衣胸贴 / 新娘美护</p>
+            <div class="thing-list">
+                <div class="thing-show thing-show-one">
+                    <img src="images/thing1.png" alt=""/>
+                    <div class="meng4"></div>
+                    <div class="thing-show-xia">
+                        <span class="thing-show-title">新娘礼服</span>
+                        <span class="line"></span>
+                        <p class="thing-show-store">婚纱/秀禾服/敬酒服</p>
+                    </div>
+                </div>
+                <div class="thing-show thing-show-two">
+                    <img src="images/thing2.png" alt=""/>
+                    <div class="meng4"></div>
+                    <div class="thing-show-xia">
+                        <span class="thing-show-title">婚房布置</span>
+                        <span class="line"></span>
+                        <p class="thing-show-store">气球/拉花纱幔/喜字</p>
+                    </div>
+                </div>
+                <div class="thing-show thing-show-three">
+                    <img src="images/thing3.png" alt=""/>
+                    <div class="meng4"></div>
+                    <div class="thing-show-xia">
+                        <span class="thing-show-title">喜糖请柬</span>
+                        <span class="line"></span>
+                        <p class="thing-show-store">请柬/伴手礼/成品喜糖</p>
+                    </div>
+                </div>
+                <div class="thing-show thing-show-four">
+                    <img src="images/thing4.png" alt=""/>
+                    <div class="meng4"></div>
+                    <div class="thing-show-xia">
+                        <span class="thing-show-title">婚鞋婚包</span>
+                        <span class="line"></span>
+                        <p class="thing-show-store">婚鞋/婚包/情侣拖鞋</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--结婚用品结束-->
+    <!--结婚美图-->
+    <div id="go5" class="meitu-wrap">
+        <div class="meitu">
+              <div class="meitu-title">
+                  <h1>结婚美图</h1>
+              </div>
+              <div class="meitu-show">
+                 
+                  <!--第一层-->
+                  <div class="meitu-showtop">
+                       {% for beauty in beautys %}
+                       {% if beauty.num=="1" %}
+                      <a href="###"><img src="\{{beauty.url}}" alt=""/></a>    
+                        {% endif %}
+                       <!-- {% endfor %}  -->
+                      <div class="showtop">
+                          <div class="showtop-info">
+                       <!-- {% for beauty in beautys %} -->
+                       {% if beauty.num=="2" %}
+                              <a href="###"><img src="\{{beauty.url}}" alt=""/><div class="meng5"></div></a>
+                              <div class="showtop-info-description">
+                                  <a href="###" class="top-title">{{beauty.title}}</a>
+                                  <p class="top-content">{{beauty.description}}</p>
+                                  <a href="###" class="next-icon">→</a>
+                                  <a href="###" class="top-point"></a>
+                              </div>
+                       {% endif %}
+                        <!-- {% endfor %} -->
+                          </div>
+                      </div>
+                  </div>
+                  <!--第二层-->
+                  <div class="meitu-showmiddle">
+                      <div class="showmiddle-info">
+                          <!-- {% for beauty in beautys %} -->
+                          {% if beauty.num=="3" %}
+                          <a href="###"><img src="\{{beauty.url}}" alt=""/><div class="meng5"></div></a>
+                          <div class="showmiddle-info-description">
+                              <a href="###" class="middle-title">{{beauty.title}}</a>
+                              <a href="###" class="middle-point-left"></a>
+                          </div>
+                           {% endif %}
+                           <!-- {% endfor %} -->
+                      </div>
+                      <div class="showmiddle-info">
+                           <!-- {% for beauty in beautys %} -->
+                           {% if beauty.num=="4" %}
+                          <a href="###"><img src="\{{beauty.url}}" alt=""/><div class="meng5"></div></a>
+                          <div class="showmiddle-info-description">
+                              <a href="###" class="middle-title">{{beauty.title}}</a>
+                              <a href="###" class="middle-point-right"></a>
+                          </div>
+                           {% endif %}
+                           <!-- {% endfor %} -->
+                      </div>
+                  </div>
+                  <!--第三层-->
+                  <div class="meitu-showbottom">
+                       <!-- {% for beauty in beautys %} -->
+                       {% if beauty.num=="5" %}
+                      <div>
+                          <div class="bottom-content">
+                              <a href="###" class="bottom-title">小清新婚礼布局</a>
+                              <p class="bottom-description">小清新婚礼布置是时下最流新的婚礼布置，无论是室内还是室外都可以营造出一种清新浪漫的婚礼氛围，深受新人们的喜爱！</p>
+                              <a href="###" class="next-icon">→</a>
+                              <a href="###" class="bottom-point"></a>
+                          </div>
+                      </div>
+                      <a href="###"><img src="\{{beauty.url}}" alt=""/><div class="meng5"></div></a>
+                       {% endif %}
+                       {% endfor %}
+                  </div>
+              </div>
+        </div>
+    </div>
+    <!--结婚美图结束-->
+     <!-- 结婚攻略 -->
+    <!-- <div class="ask-wrap">
+        <div class="ask">
+              <div class="ask-title">
+                  <h1>结婚攻略</h1>
+              </div>
+              <p class="ask-smalltitle">结婚流程 / 拍婚纱照 / 婚礼布置 / 婚宴攻略 / 婚房布置 / 拍婚纱照 / 婚庆准备 / 婚品采购 / 婚纱礼服 / 备婚流程</p>
+              <div class="ask-content">
+                   <ul>
+                       <li><a href="###">拍婚纱照需要多长时间？      </a></li>
+                       <li><a href="###">拍婚纱照有哪些技巧？        </a></li>
+                       <li><a href="###">婚纱照拍摄什么风格的最好看？</a></li>
+                       <li><a href="###">听说拍婚纱照做美甲会更上镜？</a></li>
+                       <li><a href="###">婚纱照该怎么选片才不会被坑？</a></li>
+                       <li><a href="###">结婚遇到大姨妈该怎么办？    </a></li>
+                   </ul>
+              </div>
+        </div>
+    </div> -->
+    <!-- 结婚攻略结束 -->
+    <!--结婚晒照-->
+    <!-- <div class="shai-wrap">
+        <div class="shai">
+              <div class="shai-title">
+                  <h1>结婚晒照</h1>
+              </div>
+              <p class="shai-smalltitle">“晒一晒我们的小幸福”</p>
+              <div class="shai-share">
+                   <div class="share-get">
+                       <div class="getpic"></div>-->
+                       <!--<div class="getname"></div>-->
+                       <!--<div class="getcontent"></div>-->
+                       <!--<div class="gettime"></div>-->
+                   <!-- </div>
+                   <div class="share-send">
+                       <textarea></textarea>
+                       <div class="sendbtn">发表</div>
+                   </div>
+              </div>
+        </div> -->
+    <!-- </div> -->
+    <!--结婚晒照结束-->
+    <div class="tanchuang">
+        <div class="tanchuangbox">
+            <div class="ercode"><img src="images/111.png" alt=""/></div>
+            <span class="close">X</span>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+        <div class="jieshao-wrap">
+            <div class="jieshao">
+                结婚>婚礼美图
+            </div>
+        </div>
+        <!-- 图片分类开始 -->
+         <div class="piclist-wrap">
+             <div class="piclist">
+                   <ul>
+                       <li class="hsz" data-to="go1"><a href="###">
+                           <img src="images/pic/pic1.jpg" alt="">
+                           <span>婚纱照</span> </a>
+                        </li>
+                        <li class="hlbz" data-to="go2"><a href="###">
+                                <img src="images/pic/pic2.jpg" alt="">
+                                <span>婚礼布置</span> </a>
+                        </li>
+                        <li class="hslf" data-to="go3"><a href="###">
+                                <img src="images/pic/pic3.jpg" alt="">
+                                <span>婚纱礼服</span> </a>
+                        </li>
+                        <li class="hlgp" data-to="go4"><a href="###">
+                                <img src="images/pic/pic4.jpg" alt="">
+                                <span>婚礼跟拍</span> </a>
+                        </li>
+                   </ul>
+             </div>
+         </div>
+        <!-- 图片分类结束 -->
+        <!-- 图片区开始 -->
+                      <!-- 婚纱照 -->
+        <div id="go1" class="pics-wrap hunshazhao-wrap">
+            <div class="pics hunshazhao jishu">
+                 <h1>婚纱照</h1>
+                  <ul>
+                      {% for photo in photoOnes %}
+                      <li><img src="\{{photo.url}}" alt=""><p>{{photo.title}}</p></li>
+                      {% endfor %}
+                     
+                      <!-- <li><p>标题</p></li>
+                      <li><p>标题</p></li>
+                      <li><p>标题</p></li>
+                      <li><p>标题</p></li>
+                      <li><p>标题</p></li>
+                      <li><p>标题</p></li> -->
+                  </ul>
+            </div>
+        </div>
+                       <!-- 婚礼布置 -->
+        <div id="go2" class="pics-wrap hunlibuzhi-wrap">
+            <div class="pics hunlibuzhi oushu">
+                <h1>婚礼布置</h1>
+                 <ul>
+                      {% for photo in photoTwos %}
+                      <li><img src="\{{photo.url}}" alt=""><p>{{photo.title}}</p></li>
+                      {% endfor %}
+                 </ul>
+            </div>
+        </div>
+                        <!-- 婚纱礼服 -->
+         <div id="go3" class="pics-wrap hunshalifu-wrap">
+             <div class="pics hunshalifu jishu">
+                 <h1>婚纱礼服</h1>
+                   <ul>
+                      {% for photo in photoThrees %}
+                      <li><img src="\{{photo.url}}" alt=""><p>{{photo.title}}</p></li>
+                      {% endfor %}        
+                   </ul>
+             </div>
+         </div>
+                         <!-- 婚礼跟拍 -->
+         <div id="go4" class="pics-wrap hunligenpai-wrap">
+             <div class="pics hunligenpai oushu">
+                 <h1>婚礼跟拍</h1>
+                   <ul>
+                      {% for photo in photoFours %}
+                      <li><img src="\{{photo.url}}" alt=""><p>{{photo.title}}</p></li>
+                      {% endfor %}
+                   </ul>
+             </div>
+         </div>
+        <!-- 图片区结束 -->
+{% endblock %}

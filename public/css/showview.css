@@ -1,0 +1,132 @@
+.listBox{
+    width: 1200px;
+    height: 280px;
+    box-shadow: 0 5px 20px 4px rgba(0, 0, 0, 0.06);
+    margin:20px auto;
+    position: relative;
+}
+.listBox h1{
+    width: 1100px;
+    padding:0 50px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    border-left:3px solid #ff6767;
+}
+.listBox .colDefault{
+    width: 1100px;
+    padding:0 50px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bolder;
+}
+.colDefault .colInfo{
+    width: auto;
+    height: 40px;
+    line-height: 40px;
+    font-weight: lighter;
+    margin-right: 20px;
+    color:#8e8e8e;
+}
+.dfn{
+    width: 750px;
+    height: 160px;
+    margin-top: 20px;
+    padding-left:50px;
+    font-size: 17px;
+    color:#8e8e8e;
+}
+.tututu{
+    width: 250px;
+    height: 150px;
+    position: absolute;
+    right: 100px;
+    top: 80px;
+    border:2px solid #ff6767;
+    border-radius: 5px;
+}
+.tututu img{
+    width: 250px;
+    height: 150px;
+    border-radius: 5px;
+}
+.listBox-message{
+     width: 1200px;
+     box-shadow: 0 5px 20px 4px rgba(0, 0, 0, 0.06);
+     margin:20px auto;
+     height: auto;
+     position: relative;
+}
+.listBox-message h3{
+    width: 1100px;
+    padding:0 50px;
+    border-left:3px solid #ff6767;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+.listBox-message  p{
+    height: 80px;
+    margin-top: 30px;
+    padding:0 50px;
+    position: relative;
+}
+#messageContent{
+    position: absolute;
+    left: 130px;
+    top: -50px;
+    width: 700px;
+    height: 30px;
+    float: left;
+}
+.clear button{
+    border-radius: 10px;
+    border:none;
+    background: #ff6767;
+    color:white;
+    font-size: 20px;
+    position: absolute;
+    left: 950px;
+    top: 10px;
+    width: 100px;
+    height: 50px;
+    float: left;
+}
+
+.bgDanger{
+    width: 1100px;
+    padding:0 50px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bolder;
+}
+.messageList{
+    width: 1100px;
+    height: auto;
+    overflow: hidden;
+}
+.messageList .messageBox{
+    width: 1100px;
+    padding:0 50px;
+    height: 100px;
+    position: relative;
+}
+.messageBox .clear {
+    width: 1060px;
+    padding:0 20px;
+    height: 30px;
+    line-height: 30px;
+    border-left:3px solid #ff6767;
+}
+.messageBox .clear span{
+    margin-right: 50px;
+}
+.messageBox .clear .fl{
+    color:#8e8e8e;
+    font-size: 20px;
+}
+.messageBox .clear .fr{
+    color:#8e8e8e;
+    font-size: 15px;
+}

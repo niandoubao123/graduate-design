@@ -1,0 +1,181 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<!-- `display: block` sprite -->
+<div class="icon-home"></div>
+
+<!-- `display: inline-block` sprite -->
+<img class="icon-home" />
+```
+*/
+.icon-advertise {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: 0px 0px;
+    width: 220px;
+    height: 110px;
+}
+.icon-bag {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: -80px -110px;
+    width: 80px;
+    height: 100px;
+}
+.icon-clothe-img {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: 0px -110px;
+    width: 80px;
+    height: 100px;
+}
+.icon-collect {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: -280px -140px;
+    width: 15px;
+    height: 15px;
+}
+.icon-date {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: -190px -110px;
+    width: 30px;
+    height: 30px;
+}
+.icon-global-photo {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: -160px -140px;
+    width: 25px;
+    height: 25px;
+}
+.icon-invite {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: -220px -140px;
+    width: 30px;
+    height: 30px;
+}
+.icon-money-record {
+    background-image: url('http://qnm.hunliji.com/o_1blp3phql1225i1d182re5p1svn7.png');
+    width: 30px;
+    height: 30px;
+}
+.icon-new-hint {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: -220px -100px;
+    width: 40px;
+    height: 40px;
+}
+.icon-plan {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: -250px -170px;
+    width: 30px;
+    height: 30px;
+}
+.icon-register {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: -160px -110px;
+    width: 30px;
+    height: 30px;
+}
+.icon-ring {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: -220px 0px;
+    width: 80px;
+    height: 100px;
+}
+.icon-task {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: -260px -100px;
+    width: 30px;
+    height: 30px;
+}
+.icon-wedding-order {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: -220px -170px;
+    width: 30px;
+    height: 30px;
+}
+.icon-wedding-photo {
+    background-image: url('http://qnm.hunliji.com/o_1aeu8brsn1k7d2e31fa5d2k1rkn7.png');
+    background-position: -185px -140px;
+    width: 25px;
+    height: 25px;
+}
+.icon-nav-hotel{
+    background: url('https://qnm.hunliji.com/o_1cv7oavb71b0qpd9587fotdbe2e.png');
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 9px;
+    vertical-align: sub;
+}
+.icon-nav-cehua{
+    background: url('https://qnm.hunliji.com/o_1cv7oavb5nq4c201ihp1h1o19fp1q.png');
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 9px;
+    vertical-align: sub;
+}
+.icon-nav-shexiang{
+    background: url('https://qnm.hunliji.com/o_1cv7oavb68q5bvo19ah18bt9lg29.png');
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 9px;
+    vertical-align: sub;
+}
+.icon-nav-siyi{
+    background: url('https://qnm.hunliji.com/o_1cv7oavb42rs4e413rh1fnk1n2s1k.png');
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 9px;
+    vertical-align: sub;
+}
+.icon-nav-lifu{
+    background: url('https://qnm.hunliji.com/o_1cv7oavb825ndsvtin7ptdvv2h.png');
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 9px;
+    vertical-align: sub;
+}
+.icon-nav-hunche{
+    background: url('https://qnm.hunliji.com/o_1cv7oavb519ug1l6vd5noq7rc824.png');
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 9px;
+    vertical-align: sub;
+}
+.icon-nav-sheying{
+    background: url('https://qnm.hunliji.com/o_1cv7oavb51c9p817lc712ftmi26.png');
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 9px;
+    vertical-align: sub;
+}
+.icon-nav-genpai{
+    background: url('https://qnm.hunliji.com/o_1cv7oavb512l1jq11cq0mucs7n1v.png');
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 9px;
+    vertical-align: sub;
+}
+.icon-nav-genzhuang{
+    background: url('https://qnm.hunliji.com/o_1cv7oavb5e0qt6c2j87o4khb20.png');
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 9px;
+    vertical-align: sub;
+}

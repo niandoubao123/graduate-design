@@ -1,0 +1,435 @@
+.wrap {
+    width: 100%;
+    min-width: 1200px;
+    overflow: hidden;
+}
+
+/*ͨ������*/
+.nav {
+    width: 100%;
+    min-width: 1200px;
+    height: 80px;
+    background: #fff;
+    position: fixed;
+    box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.08);
+    z-index: 1;
+}
+
+.nav-bar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+    width: 1200px;
+    min-width: 1200px;
+}
+
+.nav-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 260px;
+    height: 60px;
+    position: relative;
+}
+
+.nav-left .logo a img {
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+}
+
+.logo a {
+    display: block;
+}
+
+.nav-left .logo a:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.nav-left .logo a:nth-child(2) {
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    left: 60px;
+    top: 0;
+    color: #FF1A2A;
+    font-weight: bolder;
+}
+
+.nav-left .logo p {
+    height: 20px;
+    font-size: 8px;
+    width: 80px;
+    position: absolute;
+    top: 30px;
+    left: 60px;
+    text-align: center;
+    color: #666;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60px;
+    box-sizing: border-box;
+}
+
+.select-bar {
+    justify-content: flex-start;
+    height: 100%;
+    padding-right: 20px;
+}
+
+.select-bar div {
+    height: 50px;
+    float: left;
+}
+
+.select-item {
+    position: relative;
+    margin: 0 16px;
+    height: 100%;
+    font-size: 16px;
+    line-height: 48px;
+    cursor: pointer;
+}
+
+.select-item a {
+    color: gray;
+}
+
+.select-item:hover a {
+    color: rgb(248, 50, 68);
+}
+
+.select-item:hover {
+    border-bottom: 2px solid transparent;
+    border-bottom-color: rgb(248, 50, 68);
+}
+.invite {
+    position: relative;
+}
+
+.invite span {
+    display: block;
+    width: 28px;
+    height: 15px;
+    background: orange;
+    color: white;
+    font-size: 10px;
+    text-align: center;
+    line-height: 15px;
+    position: absolute;
+    top: 0;
+    left: 20px;
+}
+
+.inp {
+    position: relative;
+    width: 220px;
+    height: 40px;
+    border-radius: 2px;
+}
+
+.inp input {
+    border: none;
+    outline: none;
+    position: absolute;
+    left: 0;
+    top: -6px;
+    padding: 0 0 0 14px;
+    width: calc(100% - 40px);
+    height: 40px;
+    border-radius: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background: #f5f5f5;
+    color: #333 !important;
+    font-size: 14px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Microsoft YaHei';
+}
+
+.inp span {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    background: rgb(248, 50, 68);
+    color: white;
+    border-radius: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    font-size: 13px;
+}
+
+/* 导航结束 */
+.jieshao-wrap {
+    width: 100%;
+    height: 80px;
+    margin-top: 80px;
+}
+
+.jieshao {
+    width: 1200px;
+    min-width: 1200px;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+/* 锚点开始 */
+.maodian {
+    width: 50px;
+    height: 150px;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    top: 50%;
+    margin-top: -75px;
+}
+
+.maodian .zixun {
+    width: 50px;
+    height: 80px;
+    margin-bottom: 10px;
+    background: #222;
+    border-radius: 10px;
+}
+
+.maodian .zixun p {
+    font-size: 10px;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+}
+
+.maodian .zixun img {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.maodian .ding {
+    width: 50px;
+    height: 50px;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.maodian .ding a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    background: #222;
+    transform: rotate(45deg);
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+/* 锚点结束 */
+/* 图片分类开始 */
+.piclist-wrap{
+    width: 100%;
+    height: 120px;
+}
+.piclist,
+.piclist ul {
+    width: 1200px;
+    min-width: 1200px;
+    height: 120px;
+    margin:0 auto;
+}
+.piclist ul li{
+    width: 285px;
+    height: 120px;
+    float: left;
+    margin-left: 20px;
+    position: relative;
+}
+.piclist ul li:first-child{
+   margin-left: 0;
+}
+.piclist ul li span{
+    display: block;
+    width: 285px;
+    height: 120px;
+    text-align: center;
+    line-height: 120px;
+    color:white;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* 图片分类结束 */
+/* 图片区开始 */
+.pics-wrap{
+    width: 100%;
+    height: 600px;
+}
+.pics{
+    width: 1200px;
+    min-width: 1200px;
+    height: 600px;
+    margin:20px auto;
+    box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.08);
+}
+.pics ul li p{
+    width: 280px;
+    height: 30px;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color:#ff6767;
+    font-size: 16px;
+}
+.pics h1{
+    width: 1170px;
+    height: 50px;
+    line-height: 50px;
+    text-align:left;
+    font-size: 25px;
+    padding-left: 20px;
+    margin-left: 10px;
+    border-left:3px solid #ff6767;
+}
+.jishu ul li:nth-child(1) {
+    width: 280px;
+    height: 500px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.jishu ul li:nth-child(1) img,
+.oushu ul li:nth-child(4) img {
+    width: 280px;
+    height: 470px;
+}
+
+.jishu ul li {
+    width: 280px;
+    height: 240px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    position: relative;
+}
+.jishu ul li img,
+.oushu ul li  img{
+    width: 280px;
+    height: 210px;
+    transition: .5s;
+}
+
+.oushu ul li {
+    width: 280px;
+    height: 240px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.oushu ul li:nth-child(4) {
+    width: 285px;
+    height: 500px;
+    float: right;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.pics ul li{
+    overflow: hidden;
+}
+.pics ul li:hover img{
+    transition: .5s;
+    transform: scale(1.1);
+}
+.pics ul li:hover p{
+    display: none;
+}
+/* 图片区结束 */
+/* footer开始 */
+/* .foot-wrap {
+    width: 100%;
+    height: 250px;
+    background: #222;
+    margin-top: 100px;
+}
+
+.foot {
+    width: 1200px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.foot-list {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 20px 0;
+    height: 210px;
+}
+
+.foot_list_last {
+    width: 96px;
+    height: 210px;
+    float: left;
+}
+
+.foot_list_last img {
+    width: 100%;
+    height: 96px;
+}
+
+.foot_list_box {
+    width: 160px;
+    height: 210px;
+    float: left;
+    margin-right: 60px;
+}
+
+h4 {
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 50px;
+    color: white;
+    text-align: center;
+}
+
+.foot_list_box li {
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.foot_list_box li a {
+    color: #ccc;
+} */
+
+/* footer结束 */

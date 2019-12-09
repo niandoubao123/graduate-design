@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1">-->
+    <title>豆包婚礼--ENJOY YOUR GREAT DAY</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/sprite.css" />
+    <link rel="shortcut icon" href="/images/doubaologo2.png">
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/denglu.css" />
+    <link rel="stylesheet" href="/css/invitation.css">
+    <link rel="stylesheet" href="/css/hotel.css">
+    <link rel="stylesheet" href="/css/mall.css">
+    <link rel="stylesheet" href="/css/things.css">
+    <link rel="stylesheet" href="/css/idea.css">
+    <link rel="stylesheet" href="/css/pic.css">
+    <link rel="stylesheet" href="/css/showPic.css">
+    <link rel="stylesheet" href="/css/showPic-add.css">
+    <link rel="stylesheet" href="/css/showview.css">
+    <!-- <link rel="stylesheet" href="/css/orderConfirm.css"> -->
+</head>
+
+<body>
+    <!--顶部通栏-->
+    <div id="top" class="nav-top-box">
+        <div class="nav-top">
+            <div class="nav-top-left">
+                {% if !userInfo._id %}
+                <span id="dian" style="cursor: pointer;">登陆/注册</span>
+                {% else %}
+                <p><span class="colDark">{{userInfo.username}}</span></p>
+                {% if userInfo.isAdmin %}
+                <div id="adminSet">
+                    <span id="adminSet-span" class="colDanger">你好，管理员！</span>
+                    <a id="adminSet-a" href="/admin">进入管理</a>
+                </div>
+                {% else %}
+                <p style="margin-left:10px;">您好，欢迎回来!</p>
+                {% endif %}
+                {% endif %}
+            </div>
+            {% if userInfo._id %}
+            <div class="logout" style="float:left;width:30px;cursor: pointer;color:#ff6767;">注销</div>
+            {% endif %}
+            <div class="nav-top-right">
+                <div class="applist">
+                    <a href="#"><img src="/iconfont/weibo.png" alt="" /><img src="/images/WX.jpg" alt=""
+                            class="erweima" /></a>
+                    <a href="#"><img src="/iconfont/weixin.png" alt="" /><img src="/images/WX.jpg" alt=""
+                            class="erweima" /></a>
+                    <a href="#"><img src="/iconfont/QQ.png" alt="" /><img src="/images/QQcode.jpg" alt=""
+                            class="erweima" /></a>
+                    <span><img src="/iconfont/dainhau.png" alt="" /></span>
+                     <p>17878777422</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--顶部通栏结束-->
+    <!--登录注册-->
+    <div class="loginwrap">
+        <div class="loginbox">
+            <h1>登录</h1>
+            <div class="loginnav">
+                <div class="dengluqu">
+                    <div class="denglukuai" id="loginBox">
+                        <h2>登录</h2>
+                        <input type="text" name="username" placeholder="用户名" class="dengluusername" />
+                        <input type="password" name="password" placeholder="密码" class="denglupassword" />
+                        <div class="denglubtn">登录</div>
+                        <div class="forget">忘记密码？</div>
+                        <p>-其他方式登录-</p>
+                        <div class="qq"><img src="/images/QQ.png" alt="" />
+                            <div class="q">QQ</div>
+                        </div>
+                        <div class="weixin"><img src="/images/weixin.png" alt="" />
+                            <div class="wei">微信</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="zhucequ">
+                    <div class="zhucekuai" id="registerBox">
+                        <h2>注册</h2>
+                        <input type="text" name="username" placeholder="用户名(仅接受英文名字)" />
+                        <input type="text" name="email" placeholder="邮箱" />
+                        <input type="password" name="password" placeholder="密码" />
+                        <input type="text" name="phone" placeholder="手机号码" />
+                        <div class="zhucebtn">免费注册</div>
+                    </div>
+                </div>
+                <p class="colWarning textCenter" style="color:white;"></p>
+            </div>
+        </div>
+    </div>
+    <!--登陆注册结束-->
+    <div class="wrap">
+        <!--上导航-->
+        <div class="nav">
+            <div class="nav-bar">
+                <div class="nav-left">
+                    <div class="logo">
+                        <a href="index.html"><img src="/images/doubaologo2.png" alt="豆包婚礼" /></a>
+                        <a href="index.html">豆包婚礼</a>
+                        <p>ENJOY YOUR GREAT DAY</p>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="select-bar">
+                        <div class="select-item   " id="selected"><a href="/">首页</a></div>
+                        <div class="select-item  invite "><a href="/invite">图片请帖</a><span>HOT</span></div>
+                        <div class="select-item  hotel"><a href="/hotel">婚宴酒店</a></div>
+                        <div class="select-item  mall"><a href="/mall">结婚商城</a></div>
+                        <div class="select-item  things"><a href="/things">婚品采购</a></div>
+                        <div class="select-item  idea"><a href="/idea">结婚攻略</a></div>
+                        <div class="select-item  pic"><a href="/pic">结婚美图</a></div>
+                        <div class="select-item  pic"><a href="/showPic">晒幸福</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 锚点开始 -->
+        <div class="maodian">
+            <div class="ding">
+                <a href="#top"></a>
+            </div>
+        </div>
+        <!-- 锚点结束 -->
+        <!-- 进入收货页 -->
+        {% if userInfo._id %}
+        <div class="recive">
+             <a href="/order-list"><img src="/images/gouwuche.svg" alt="" width="40" style="margin-top:5px;margin-left: 5px;"></a>
+        </div>
+        {% endif %}
+    {% block main %}{% endblock %}
+     <!-- footer开始 -->
+     <div class="foot-wrap">
+         <div class="foot">
+             <div class="foot-list">
+                 <div class="foot_list_box">
+                     <h4>婚庆服务</h4>
+                     <ul>
+                         <li><a href="###">婚礼策划</a></li>
+                         <li><a href="###">婚礼司仪</a></li>
+                         <li><a href="###">婚纱摄影</a></li>
+                         <li><a href="###">婚纱礼服</a></li>
+                         <li><a href="###">婚礼跟妆</a></li>
+                     </ul>
+                 </div>
+                 <div class="foot_list_box">
+                     <h4>婚品采购</h4>
+                     <ul>
+                         <li><a href="###">新娘礼服</a></li>
+                         <li><a href="###">喜糖请柬</a></li>
+                         <li><a href="###">迎亲堵门</a></li>
+                         <li><a href="###">鞋包内衣</a></li>
+                         <li><a href="###">新郎穿搭</a></li>
+                     </ul>
+                 </div>
+                 <div class="foot_list_box">
+                     <h4>结婚攻略</h4>
+                     <ul>
+                         <li><a href="###">结婚问答</a></li>
+                         <li><a href="###">婚前事宜</a></li>
+                         <li><a href="###">结婚用品</a></li>
+                         <li><a href="###">婚礼布置</a></li>
+                         <li><a href="###">婚礼时光</a></li>
+                     </ul>
+                 </div>
+                 <div class="foot_list_box">
+                     <h4>结婚工具</h4>
+                     <ul>
+                         <li><a href="###">电子请帖</a></li>
+                         <li><a href="###">婚礼MV</a></li>
+                         <li><a href="###">婚礼现场</a></li>
+                         <li><a href="###">结婚吉日</a></li>
+                         <li><a href="###">结婚登记</a></li>
+                     </ul>
+                 </div>
+                 <div class="foot_list_box">
+                     <h4>关于我们</h4>
+                     <ul>
+                         <li><a href="###">品牌介绍</a></li>
+                         <li><a href="###">联系我们</a></li>
+                     </ul>
+                 </div>
+                 <div class="foot_list_last">
+                     <h4>豆包婚礼</h4>
+                     <img src="/images/WX.jpg" alt="" />
+                 </div>
+             </div>
+         </div>
+     </div>
+     <!-- footer结束 -->
+    </div>
+        <script src="/js/jquery-1.12.3.min.js"></script>
+        <script src="/js/nav.js"></script>
+        <script src="/js/login.js"></script>
+        <script src="/js/banner.js"></script>
+        <script src="/js/close.js"></script>
+        <!-- <script src="js/AddToCar.js"></script> -->
+        <script src="/js/pic_scroll.js"></script>
+        <script src="/js/idea.js"></script>
+</body>
+</html>

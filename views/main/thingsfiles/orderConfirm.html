@@ -1,0 +1,27 @@
+{% extends '../layout.html' %}
+{% block main %}
+<div class="car-wrap" id='gobot' style="margin-top: 100px;">
+    <div class="car">
+        <h1>购物车</h1>
+        <hr>
+        <div class="leiming">
+            <a>图片</a>
+            <a>标题</a>
+            <a>价格</a>
+            <a>操作</a>
+        </div>
+        <hr>
+        <h2>你的购物车空空如也~</h2>
+        <ul style="overflow:hidden;clear:both;" class="dingdan">
+
+        </ul>
+        <div class="sumshu">共<span></span>件</div>
+        <div class="summoney">共<span></span>元</div>
+        <div class="checkout">
+            <a href="/orderConfirm">确认订单</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+ <script src="/js/jquery-1.12.3.min.js"></script>
+ <script src="/js/AddToCar.js"></script>

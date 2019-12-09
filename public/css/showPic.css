@@ -1,0 +1,132 @@
+.showPic-wrap{
+    margin-bottom: 50px;
+}
+.pubb-wrap{
+    width: 100%;
+}
+.pubb{
+    width: 1200px;
+    min-width: 1200px;
+    margin:0 auto;
+    box-shadow: 0 5px 20px 4px rgba(0, 0, 0, 0.06);
+}
+.pubb-title{
+    height: 50px;
+}
+.pubb h1{
+    width: 800px;
+    height: 50px;
+    padding:0 40px;
+    line-height: 50px;
+    font-size: 30px;
+    border-left:3px solid #ff6767;
+    float: left;
+}
+.pubb .shaiBtn{
+    width: 160px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 70px; 
+    background: #ff6767;
+    border-radius: 20px;
+}
+.shaiBtn a{
+    color:white;
+}
+.pubb-get{
+    width: 1100px;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.pubb-get ul li{
+    width: 1100px;
+    height: 180px;
+    position: relative;
+    border-bottom: 1px solid gray;
+    margin-bottom: 30px;
+}
+.pubb-get ul li .us{
+    width: 70px;
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    color:#ff6767;
+    line-height: 30px;
+    padding-left: 10px;
+    border-left: 3px solid #ff6767;
+}
+.pubb-get ul li .titl{
+    width: 500px;
+    height: 30px;
+    position: absolute;
+    left: 90px;
+    line-height: 30px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+.pubb-get ul li .content{
+    position: absolute;
+    width: 830px;
+    height: 80px;
+    padding:10px 20px;
+    top: 40px;
+    left: 70px;
+    font-size:15px;
+}
+.function{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    left: 550px;
+    top: 0;
+}
+.function a{
+    color:#8e8e8e;
+}
+.showPhoto{
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    top: 20px;
+    left: 930px;
+}
+.showPhoto img{
+    width: 150px;
+    height: 100px;
+}
+.pubb-get ul li .addtime{
+    width: 300px;
+    height: 20px;
+    position: absolute;
+    bottom: 5px;
+    left: 80px;
+    font-size: 13px;
+    color:#999999;
+}
+.pubb-get ul li .views{
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    bottom: -15px;
+    left: 550px;
+    color:#8e8e8e;
+    font-size: 13px;
+}
+.pubb-get ul li .comments{
+     position: absolute;
+     width: 100px;
+     height: 40px;
+     bottom: -15px;
+     left: 700px;
+     color:#8e8e8e;
+     font-size: 13px;
+}
+

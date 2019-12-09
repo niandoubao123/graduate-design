@@ -1,0 +1,39 @@
+     {% extends '../layout.html' %}
+     {% block main %}
+     <div class=" layui-tab layui-tab-card site-demo-title x-main">
+          <ul class="pager">
+              <li style="float: left;" class="previous"><a style="color:white;font-weight:bold;background: #ff6767;"
+                      href="/admin/index/banner1?page={{page-1}}">上一页</a></li>
+              <li
+                  style="margin-left:10px;width:300px;height:30px;line-height: 30px; text-align: center;background: gray;color:white;border-radius: 10px; float: left;">
+                  共{{count}} 条，每页 {{limit}} 条，共 {{pages}} 页，第 {{page}} 页</li>
+              <li style=" float: right;" class="next"> <a style="color:white;font-weight:bold;background: #ff6767;"
+                      href="/admin/index/banner1?page={{page+1}}">下一页 </a></li>
+          </ul>
+      <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"></i>首页轮播(上)</button>
+        <button class="layui-btn" onclick="banner_add('添加用户','banner-add.html','600','500')"><a
+                href="/admin/banneroneAdd" style="color:white;"><i class="layui-icon">&#xe608;</i> 添加</a></button>
+        <span class="x-right"
+              style="line-height:40px">共有数据：{{count}} 条</span></xblock>
+
+      <table class="layui-table">
+          <tr>
+              <th>ID</th>
+              <th>序号</th>
+              <th>图片</th>
+              <th>操作</th>
+          </tr>
+           {% for pic in pics %}
+          <tr>
+              <td>{{pic._id.toString()}}</td>
+              <td>{{pic.name}}</td>
+               <td><img src="/{{pic.url}}" alt="" style="width:300px;height: 100px;border-radius: 10px;"></td>
+              <td>
+                  <!-- <a href="/admin/index/banner1/update?id={{pic._id.toString()}}">修改</a> -->
+                  <a href="/admin/index/banner1/delete?id={{pic._id.toString()}}"><i class="layui-icon">&#xe640;</i>删除</a>
+              </td>
+          </tr>
+          {% endfor %}
+      </table>
+      </div>
+     {% endblock %}

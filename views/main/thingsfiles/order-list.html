@@ -1,0 +1,48 @@
+{% extends '../layout.html' %}
+{% block main %}
+{% if userInfo._id %}
+<div class="car-wrap" id='gobot' style="margin-top: 100px;">
+    <div class="car" style="overflow-x: scroll;">
+        <h1>待收货</h1>
+        <hr>
+      
+       <table class="layui-table">
+            {% for order in orders %}
+           <tr>
+               <th style="width: 80px;">用户名</th>
+               <th style="width: 80px;">总金额</th>
+               <th style="width: 80px;">支付状态</th>
+               <th style="width: 80px;">收获地址</th>
+               {% for good in order.goods %}
+               <th style="width: 80px;">商品名</th>
+               <th style="width: 100px;">商品图品</th>
+               <th style="width: 80px;">商品价格</th>
+               {% endfor %}
+           </tr>
+
+           <tr>
+               <td style="width: 80px;text-align: center;">{{order.username}}</td>
+               <td style="width: 80px;text-align: center;">{{order.cost}}</td>
+               <td style="width: 80px;text-align: center;">{{order.status}}</td>
+               <td style="width: 80px;text-align: center;">{{order.place}}</td>
+               {% for good in order.goods %}
+               <td style="width: 80px;text-align: center;">{{good.goodsTitle}}</td>
+               <td><img src="{{good.goodsUrl}}" alt="" style="height:100px;height: 100px;border-radius: 10px;margin-top: 20px;">
+               </td>
+               <td style="width: 80px;text-align: center;">{{good.goodsMoney}}</td>
+               {% endfor %}
+           </tr>
+           {% endfor %}
+       </table>
+    </div>
+</div>
+{% else %}
+<div class="car-wrap" id='gobot' style="margin-top: 100px;">
+    <div class="car" style="overflow-x: scroll;">
+        <h1>你还没有登录</h1>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+<script src="/js/jquery-1.12.3.min.js"></script>
+<script src="/js/AddToCar.js"></script>

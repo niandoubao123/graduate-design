@@ -1,0 +1,10 @@
+ <nav>
+     <ul class="pager">
+         <li style="float: left;"class="previous"><a style="color:white;font-weight:bold;background: #ff6767;" href="/admin/user?page={{page-1}}">上一页</a></li>
+         <li
+             style="margin-left:10px;width:300px;height:30px;line-height: 30px; text-align: center;background: gray;color:white;border-radius: 10px; float: left;">
+             共{{count}} 条，每页 {{limit}} 条，共 {{pages}} 页，第 {{page}} 页</li>
+         <li style=" float: right;" class="next"> <a style="color:white;font-weight:bold;background: #ff6767;"
+                 href="/admin/user?page={{page+1}}">下一页 </a></li>
+     </ul>
+ </nav>

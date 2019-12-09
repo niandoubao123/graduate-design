@@ -1,0 +1,45 @@
+{% extends '../layout.html' %}
+
+{% block main %}
+<div class="jieshao-wrap">
+    <div class="jieshao">
+        结婚>晒幸福 // 结婚问答
+    </div>
+</div>
+<!-- 晒幸福开始 -->
+<div class="showPic-wrap pubb-wrap">
+    <div class="showPic pubb" style="position: relative;">
+        <div class="pubb-title">
+             <h1>晒一晒你们的幸福~</h1>
+             <span class="shaiBtn pubbBtn"><a href="/showPicAdd">我也要晒</a></span>
+        </div>
+        <div class="pubb-get">
+              <ul>
+                  {% for showPic in showPics %}
+                    <li>
+                        <span class="us">{{showPic.user}}</span>
+                        <p class="titl">{{showPic.title}}</p>
+                        <div class="function"><a href="/showview?showPicid={{showPic.id}}">阅读全文</a></div>
+                        <div class="content">{{showPic.content}}</div>
+                        <div class="showPhoto"><img src="\{{showPic.url}}" alt=""></div>
+                        <div class="addtime">发布日期：{{showPic.addTime|date('Y年m月d日 H:i:s', -8*60)}}</div>
+                        <div class="views">浏览量：{{showPic.views}}</div>
+                        <div class="comments">评论：{{showPic.comments.length}}</div>
+                    </li>
+                  {% endfor %}
+              </ul>
+        </div>
+         <ul class="pager" style="width: 1200px;height: 30px;  position:absolute;bottom: -30px;">
+             <li style="float: left;height: 30px;background: #ff6767;line-height: 30px; border-radius: 8px;" class="previous"><a style="color:white;"
+                     href="/showPic?page={{page-1}}">上一页</a></li>
+             <li
+                 style="margin-left:10px;width:300px;height:30px;line-height: 30px; text-align: center;background: gray;color:white;border-radius: 10px; float: left;">
+                 共{{count}} 条，每页 {{limit}} 条，共 {{pages}} 页，第 {{page}} 页</li>
+             <li style=" float: right;height: 30px;background: #ff6767;line-height: 30px; border-radius: 8px;"
+                 class="next"> <a style="color:white;background: #ff6767;"
+                     href="/showPic?page={{page+1}}">下一页 </a></li>
+         </ul>
+    </div>
+</div>
+<!-- 晒幸福结束 -->
+{% endblock %}

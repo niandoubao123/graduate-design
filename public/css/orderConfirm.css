@@ -1,0 +1,48 @@
+#orderConfirm{
+    width: 1200px;
+    height: auto;
+    margin:0 auto;
+}
+#orderConfirm li{
+    border-bottom:1px solid #ccc;
+    width: 1200px;
+    height: 100px;
+    margin-bottom:20px;
+}
+#orderConfirm li div{
+    width: 400px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+}
+
+.placewhere{
+    width: 1200px;  
+    height: 120px;
+    margin:0 auto;
+    position: absolute;
+    bottom: -120px;
+    left: 0;
+}
+.placewhere input{
+    width: 1180px;
+    height: 50px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.placewhere div{
+    cursor: pointer;
+    width: 600px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: 300px;
+    line-height: 50px;
+    text-align: center;
+    background: #f50;
+    color:white;
+    font-size: 20px;
+}

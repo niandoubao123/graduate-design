@@ -1,0 +1,185 @@
+{% extends '../layout.html' %}
+
+{% block main %}
+<div class="jieshao-wrap">
+    <div class="jieshao">
+        结婚>结婚用品
+    </div>
+</div>
+<div class="gobot" data-to='gobot'>
+    <span></span>
+</div>
+<!--结婚用品-->
+<div class="thing-wrap">
+    <div class="thing">
+        <div class="thing-title">
+            <h1>结婚用品</h1>
+        </div>
+        <p class="small-title">接亲婚宴 / 婚庆床品 / 新娘嫁妆 / 新郎穿搭 / 睡衣胸贴 / 新娘美护</p>
+        <div class="thing-list">
+            <div class="thing-show thing-show-one">
+                <img src="images/thing1.png" alt="" />
+                <div class="meng4"></div>
+                <div class="thing-show-xia">
+                    <span class="thing-show-title">新娘礼服</span>
+                    <span class="line"></span>
+                    <p class="thing-show-store">婚纱/秀禾服/敬酒服</p>
+                </div>
+            </div>
+            <div class="thing-show thing-show-two">
+                <img src="images/thing2.png" alt="" />
+                <div class="meng4"></div>
+                <div class="thing-show-xia">
+                    <span class="thing-show-title">婚房布置</span>
+                    <span class="line"></span>
+                    <p class="thing-show-store">气球/拉花纱幔/喜字</p>
+                </div>
+            </div>
+            <div class="thing-show thing-show-three">
+                <img src="images/thing3.png" alt="" />
+                <div class="meng4"></div>
+                <div class="thing-show-xia">
+                    <span class="thing-show-title">喜糖请柬</span>
+                    <span class="line"></span>
+                    <p class="thing-show-store">请柬/伴手礼/成品喜糖</p>
+                </div>
+            </div>
+            <div class="thing-show thing-show-four">
+                <img src="images/thing4.png" alt="" />
+                <div class="meng4"></div>
+                <div class="thing-show-xia">
+                    <span class="thing-show-title">婚鞋婚包</span>
+                    <span class="line"></span>
+                    <p class="thing-show-store">婚鞋/婚包/情侣拖鞋</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--结婚用品结束-->
+{% if userInfo._id %}
+<div class="goshop-wrap goshop-wrap-tt">
+    <div class="goshop">
+        <button>Start Shopping</button>
+    </div>
+</div>
+{% else %}
+<div class="goshop-wrap">
+    <div class="goshop">
+        <h1>请先登录</h1>
+    </div>
+</div>
+{% endif %}
+<!-- 具体物品开始 -->
+{% if userInfo._id %}
+<div class="total-wrap total-wrap-ss">
+    <div class="total">
+        <!-- 新娘礼服 -->
+        <div class="hun_things jhcd">
+            <h1 class="hun_things_title xnlf_title">穿搭服饰</h1>
+            <ul style="overflow:hidden;clear:both;">
+                {% for thingsOne in thingsOnes %}
+                <li>
+                    <a><img src="\{{thingsOne.url}}" alt="" class="hun_things_img xnlf-img">
+                        <div class="hidden"></div>
+                    </a>
+                    <div class="hun_things_des xnlf-des">
+                        <p>{{thingsOne.title}}</p>
+                        <span class="price">{{thingsOne.money}}</span>
+                        <span class="Add"><img src="/iconfont/gouwuche.png">加购物车</span>
+                    </div>
+                      {% if userInfo._id %}
+                      {% for addCar in addCars %}
+                      <input type="hidden" id="userId" value="{{addCar.username}}">
+                      {% endfor %}
+                    <input type="hidden" id="goodsId" value="{{thingsOne.id}}">
+                    <input type="hidden" id="goodsUrl" value="\{{thingsOne.url}}">
+                    <input type="hidden" id="goodsMoney" value="{{thingsOne.money}}">
+                    <input type="hidden" id="goodsTitle" value="{{thingsOne.title}}">
+                     {% else %}
+                     <p style="display: none;">还没有登陆</p>
+                     {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="hun_things jhyp">
+            <h1 class="hun_things_title xnlf_title">相关用品</h1>
+            <ul style="overflow:hidden;clear:both;">
+                {% for thingsTwo in thingsTwos %}
+                <li>
+                    <a><img src="\{{thingsTwo.url}}" alt="" class="hun_things_img xnlf-img">
+                        <div class="hidden"></div>
+                    </a>
+                    <div class="hun_things_des xnlf-des">
+                        <p>{{thingsTwo.title}}</p>
+                        <span class="price">{{thingsTwo.money}}</span>
+                        <span class="Add"><img src="/iconfont/gouwuche.png">加购物车</span>
+                    </div>
+                    {% if userInfo._id %}
+                    {% for addCar in addCars %}
+                    <input type="hidden" id="userId" value="{{addCar.username}}">
+                    {% endfor %}
+                    <input type="hidden" id="goodsId" value="{{thingsTwo.id}}">
+                    <input type="hidden" id="goodsUrl" value="\{{thingsTwo.url}}">
+                    <input type="hidden" id="goodsMoney" value="{{thingsTwo.money}}">
+                    <input type="hidden" id="goodsTitle" value="{{thingsTwo.title}}">
+                    {% else %}
+                    <p style="display: none;">还没有登陆</p>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="total-wrap">
+    <div class="total">
+    </div>
+</div>
+{% endif %}
+<!-- 购物车开始 -->
+{% if userInfo._id %}
+<div class="car-wrap" id='gobot'>
+    <div class="car">
+        <h1>购物车</h1>
+        <hr>
+        <div class="leiming">
+            <a>图片</a>
+            <a>标题</a>
+            <a>价格</a>
+            <a>操作</a>
+        </div>
+        <hr>
+        <h2>你的购物车空空如也~</h2>
+        <ul style="overflow:hidden;clear:both;" class="dingdan">
+        </ul>
+        <div class="placewhere" id="placewhere">
+            <input type="text" placeholder="请输入收件人/电话/收货地址">
+        </div>
+        <div class="sumshu">共<span></span>件</div>
+        <div class="summoney" id="summoney">共<span></span>元</div>
+        {% if userInfo._id %}
+        {% for addCar in addCars %}
+        <input type="hidden" id="userId" value="{{addCar.username}}">
+         {% endfor %}
+         {% endif %}
+        <div class="checkout">
+            <a style="cursor:pointer;" id="buy">确认订单</a>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="car-wrap" id='gobot'>
+    <div class="car">
+          
+    </div>
+</div>
+{% endif %}
+
+<!-- 购物车结束 -->
+ <script src="/js/jquery-1.12.3.min.js"></script>
+<script src="/js/AddToCar.js"></script>
+<script src="/js/pay.js"></script>
+{% endblock %}
