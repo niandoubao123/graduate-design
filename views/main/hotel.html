@@ -5,12 +5,12 @@
                 结婚>婚庆酒店
             </div>
         </div>
-        <div class="jiudian-wrap">
-            <div class="jiudian">
+        <div class="jiudian-wrap" >
+            <div class="jiudian" >
                  <h1>推荐给你各种风格的婚宴酒店</h1>
-                 <ul>
+                 <ul style="overflow:hidden;clear:both;">
                      {% for hotel in hotels %}
-                       <li><a href="###"><img src="\{{hotel.url}}" alt=""></a>
+                       <li><a href="/hoteldes?hotelid={{hotel.id}}"><img src="\{{hotel.url}}" alt=""></a>
                            <div class="descrip">
                                <p>{{hotel.title}}</p>
                                <span class="place">{{hotel.place}}</span>

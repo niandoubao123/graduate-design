@@ -34,7 +34,7 @@
         </div>
         <div class="menu">
             <ul>
-                <li><i class="mmenu icon-nav-hotel"></i><a href="#">婚宴酒店</a><span class="smenu">草坪/星级</span></li>
+                <li><i class="mmenu icon-nav-hotel"></i><a href="/hotel">婚宴酒店</a><span class="smenu">草坪/星级</span></li>
                 <li><i class="mmenu icon-nav-cehua"></i><a href="#">婚礼策划</a><span class="smenu">室内/户外</span></li>
                 <li><i class="mmenu icon-nav-shexiang"></i><a href="#">婚纱摄影</a><span class="smenu">影楼/工作室</span></li>
                 <li><i class="mmenu icon-nav-siyi"></i><a href="#">婚礼司仪</a><span class="smenu">煽情/海派</span></li>
@@ -125,6 +125,7 @@
          <div class="lvpai-bottom">
              {% for lvpai in lvpais %}
             <div class="lvpai-bottom-show lvpai-bottom-one">
+                <a href="/lvpaides?lvpaiid={{lvpai.id}}">
                 <img src="/{{lvpai.url}}" alt="" />
                 <div class="meng2"></div>
                 <div class="lvpai-bottom-xia">
@@ -132,6 +133,7 @@
                     <p class="lvpai-bstore">{{lvpai.place}}</p>
                     <span class="lvpai-bmoney">{{lvpai.money}}</span>
                 </div>
+                </a>
             </div>
            {% endfor %}
          </div>
@@ -147,7 +149,11 @@
             <div class="lvpaicity-bottom">
                 <ul>
                       {% for city in citys %}
-                      <li><a href="###"><img src="/{{city.url}}" alt=""/><div class="meng3">{{city.title}}</div></a></li>
+                      <li><a href="/citydes?cityid={{city.id}}">
+                            <img src="/{{city.url}}" alt="" />
+                            <div class="meng3">{{city.title}}</div>
+                          </a>
+                      </li>
                       {% endfor %}
                 </ul>
             </div>
@@ -173,7 +179,7 @@
                                    <div class="example-bottom-showaone-bottom">
                                        <p>{{picc.title}}</p>
                                        <span>{{picc.place}}</span>
-                                       <a href="###">→</a>
+                                       <a href="/exampledes?piccid={{picc.id}}">→</a>
                                    </div>
                                </li>
                             {% endfor %}
@@ -185,7 +191,7 @@
     </div>
     <!--婚礼案例结束-->
     <!--结婚流程-->
-    <div id="go6" class="process-wrap">
+    <div id="go6" class="process-wrap" style="margin-bottom: 50px;">
           <div class="process">
                 <div class="process-title">
                     <h1>结婚流程</h1>
@@ -193,31 +199,31 @@
               <div class="process-list">
                   <ul>
                       <li>
-                          <a href="####">
+                          <a href="/hotel">
                           <span></span>
                           <p>婚宴酒店</p>
                           </a>
                       </li>
                       <li>
-                          <a href="####">
+                          <a href="/mall">
                               <span></span>
                               <p>婚纱摄影</p>
                           </a>
                       </li>
                       <li>
-                          <a href="####">
+                          <a href="/mall">
                               <span></span>
                               <p>婚庆公司</p>
                           </a>
                       </li>
                       <li>
-                           <a href="####">
+                           <a href="/things">
                           <span></span>
                           <p>婚纱礼服</p>
                           </a>
                       </li>
                       <li>
-                           <a href="####">
+                           <a href="/invite">
                           <span></span>
                           <p>婚礼请帖</p>
                           </a>
@@ -229,7 +235,7 @@
                           </a>
                       </li>
                       <li>
-                           <a href="####">
+                           <a href=/things">
                           <span></span>
                           <p>结婚用品</p>
                           </a>
@@ -246,7 +252,7 @@
     </div>
     <!--结婚流程结束-->
     <!--结婚用品-->
-    <div id="go4" class="thing-wrap">
+    <!-- <div id="go4" class="thing-wrap">
         <div class="thing">
             <div class="thing-title">
                 <h1>结婚用品</h1>
@@ -291,7 +297,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--结婚用品结束-->
     <!--结婚美图-->
     <div id="go5" class="meitu-wrap">
@@ -299,25 +305,26 @@
               <div class="meitu-title">
                   <h1>结婚美图</h1>
               </div>
-              <div class="meitu-show">
-                 
+              <div class="meitu-show">  
                   <!--第一层-->
                   <div class="meitu-showtop">
                        {% for beauty in beautys %}
                        {% if beauty.num=="1" %}
-                      <a href="###"><img src="\{{beauty.url}}" alt=""/></a>    
+                      <a href="/beautydes?beautyid={{beauty.id}}"><img src="\{{beauty.url}}" alt="" /></a>
                         {% endif %}
                        <!-- {% endfor %}  -->
                       <div class="showtop">
                           <div class="showtop-info">
                        <!-- {% for beauty in beautys %} -->
                        {% if beauty.num=="2" %}
-                              <a href="###"><img src="\{{beauty.url}}" alt=""/><div class="meng5"></div></a>
+                              <a href="/beautydes?beautyid={{beauty.id}}"><img src="\{{beauty.url}}" alt="" />
+                                  <div class="meng5"></div>
+                              </a>
                               <div class="showtop-info-description">
-                                  <a href="###" class="top-title">{{beauty.title}}</a>
+                                  <a href="/beautydes?beautyid={{beauty.id}}" class="top-title">{{beauty.title}}</a>
                                   <p class="top-content">{{beauty.description}}</p>
-                                  <a href="###" class="next-icon">→</a>
-                                  <a href="###" class="top-point"></a>
+                                  <a href="/beautydes?beautyid={{beauty.id}}" class="next-icon">→</a>
+                                  <a href="/beautydes?beautyid={{beauty.id}}" class="top-point"></a>
                               </div>
                        {% endif %}
                         <!-- {% endfor %} -->
@@ -329,10 +336,12 @@
                       <div class="showmiddle-info">
                           <!-- {% for beauty in beautys %} -->
                           {% if beauty.num=="3" %}
-                          <a href="###"><img src="\{{beauty.url}}" alt=""/><div class="meng5"></div></a>
+                          <a href="/beautydes?beautyid={{beauty.id}}"><img src="\{{beauty.url}}" alt="" />
+                              <div class="meng5"></div>
+                          </a>
                           <div class="showmiddle-info-description">
-                              <a href="###" class="middle-title">{{beauty.title}}</a>
-                              <a href="###" class="middle-point-left"></a>
+                              <a href="/beautydes?beautyid={{beauty.id}}" class="middle-title">{{beauty.title}}</a>
+                              <a href="/beautydes?beautyid={{beauty.id}}" class="middle-point-left"></a>
                           </div>
                            {% endif %}
                            <!-- {% endfor %} -->
@@ -340,28 +349,32 @@
                       <div class="showmiddle-info">
                            <!-- {% for beauty in beautys %} -->
                            {% if beauty.num=="4" %}
-                          <a href="###"><img src="\{{beauty.url}}" alt=""/><div class="meng5"></div></a>
+                          <a href="/beautydes?beautyid={{beauty.id}}"><img src="\{{beauty.url}}" alt="" />
+                              <div class="meng5"></div>
+                          </a>
                           <div class="showmiddle-info-description">
-                              <a href="###" class="middle-title">{{beauty.title}}</a>
-                              <a href="###" class="middle-point-right"></a>
+                              <a href="/beautydes?beautyid={{beauty.id}}" class="middle-title">{{beauty.title}}</a>
+                              <a href="/beautydes?beautyid={{beauty.id}}" class="middle-point-right"></a>
                           </div>
                            {% endif %}
-                           <!-- {% endfor %} -->
+                           {% endfor %}
                       </div>
                   </div>
                   <!--第三层-->
                   <div class="meitu-showbottom">
-                       <!-- {% for beauty in beautys %} -->
+                       {% for beauty in beautys %}
                        {% if beauty.num=="5" %}
                       <div>
                           <div class="bottom-content">
-                              <a href="###" class="bottom-title">小清新婚礼布局</a>
+                              <a href="/beautydes?beautyid={{beauty.id}}" class="bottom-title">小清新婚礼布局</a>
                               <p class="bottom-description">小清新婚礼布置是时下最流新的婚礼布置，无论是室内还是室外都可以营造出一种清新浪漫的婚礼氛围，深受新人们的喜爱！</p>
-                              <a href="###" class="next-icon">→</a>
-                              <a href="###" class="bottom-point"></a>
+                              <a href="/beautydes?beautyid={{beauty.id}}" class="next-icon">→</a>
+                              <a href="/beautydes?beautyid={{beauty.id}}" class="bottom-point"></a>
                           </div>
                       </div>
-                      <a href="###"><img src="\{{beauty.url}}" alt=""/><div class="meng5"></div></a>
+                      <a href="/beautydes?beautyid={{beauty.id}}"><img src="\{{beauty.url}}" alt="" />
+                          <div class="meng5"></div>
+                      </a>
                        {% endif %}
                        {% endfor %}
                   </div>

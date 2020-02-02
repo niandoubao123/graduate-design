@@ -11,7 +11,7 @@
                   <div class="lvpai-top">
                       <h1>旅拍套餐推荐</h1>
                   </div>
-                  <div class="lvpai-middle">
+                  <!-- <div class="lvpai-middle">
                       <div class="lvpai-middle-left lvpai-middle-show">
                           <img src="images/lvpai1.jpg" alt="" />
                           <div class="meng"></div>
@@ -39,9 +39,22 @@
                           <p class="lvpai-store">厦门古婚纱摄影</p>
                           <a href="###" class="lvpaigo"><span></span></a>
                       </div>
-                  </div>
+                  </div> -->
                   <div class="lvpai-bottom">
-                      <div class="lvpai-bottom-show lvpai-bottom-one">
+                        {% for lvpai in lvpais %}
+                        <div class="lvpai-bottom-show lvpai-bottom-one">
+                            <a href="/lvpaides?lvpaiid={{lvpai.id}}">
+                                <img src="/{{lvpai.url}}" alt="" />
+                                <div class="meng2"></div>
+                                <div class="lvpai-bottom-xia">
+                                    <p class="lvpai-btitle">{{lvpai.title}}</p>
+                                    <p class="lvpai-bstore">{{lvpai.place}}</p>
+                                    <span class="lvpai-bmoney">{{lvpai.money}}</span>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                      <!-- <div class="lvpai-bottom-show lvpai-bottom-one">
                           <img src="images/lvpai4.jpg" alt="" />
                           <div class="meng2"></div>
                           <div class="lvpai-bottom-xia">
@@ -76,7 +89,7 @@
                               <p class="lvpai-bstore">玛格映画全球旅拍·青岛</p>
                               <span class="lvpai-bmoney">￥6999</span>
                           </div>
-                      </div>
+                      </div> -->
                   </div>
               </div>
           </div>
@@ -90,7 +103,9 @@
                   <div class="lvpaicity-bottom">
                       <ul>
                           {% for city in citys %}
-                          <li><a href="###"><img src="/{{city.url}}" alt=""/><div class="meng3">{{city.title}}</div></a></li>
+                          <li><a href="/citydes?cityid={{city.id}}"><img src="/{{city.url}}" alt="" />
+                                  <div class="meng3">{{city.title}}</div>
+                              </a></li>
                           {% endfor %}
                       </ul>
                   </div>
@@ -115,7 +130,7 @@
                   <ul class="tab-select selected">
                        {% for mallTao in mallTaos %}
                        <li>
-                           <a href="###"><img src="\{{mallTao.url}}" alt=""></a>
+                           <a href="/mallTaodes?mallTaoid={{mallTao.id}}"><img src="\{{mallTao.url}}" alt=""></a>
                            <div class="miaoshu">
                                <h3>11{{mallTao.title}}</h3>
                                <p>{{mallTao.name}}</p>
@@ -127,7 +142,7 @@
                   <ul class="tab-select">
                         {% for mallTao in mallTaos %}
                         <li>
-                           <a href="###"><img src="\{{mallTao.url}}" alt=""></a>
+                           <a href="/mallTaodes?mallTaoid={{mallTao.id}}"><img src="\{{mallTao.url}}" alt=""></a>
                            <div class="miaoshu">
                                <h3>2{{mallTao.title}}</h3>
                                <p>{{mallTao.name}}</p>
@@ -139,7 +154,7 @@
                   <ul class="tab-select">
                      {% for mallTao in mallTaos %}
                      <li>
-                         <a href="###"><img src="\{{mallTao.url}}" alt=""></a>
+                         <a href="/mallTaodes?mallTaoid={{mallTao.id}}"><img src="\{{mallTao.url}}" alt=""></a>
                          <div class="miaoshu">
                              <h3>33{{mallTao.title}}</h3>
                              <p>{{mallTao.name}}</p>
@@ -151,7 +166,7 @@
                   <ul class="tab-select">
                         {% for mallTao in mallTaos %}
                         <li>
-                            <a href="###"><img src="\{{mallTao.url}}" alt=""></a>
+                            <a href="/mallTaodes?mallTaoid={{mallTao.id}}"><img src="\{{mallTao.url}}" alt=""></a>
                             <div class="miaoshu">
                                 <h3>44{{mallTao.title}}</h3>
                                 <p>{{mallTao.name}}</p>
@@ -179,7 +194,8 @@
                       <ul class="tab-select selected">
                           {% for mallStore in mallStores %}
                           <li>
-                              <a href="###"><img src="\{{mallStore.url}}" alt=""></a>
+                              <a href="/mallStoredes?mallStoreid={{mallStore.id}}"><img src="\{{mallStore.url}}"
+                                      alt=""></a>
                               <div class="miaoshu">
                                   <h3>111{{mallStore.title}}</h3>
                                   <p>{{mallStore.name}}</p>
@@ -191,7 +207,8 @@
                       <ul class="tab-select">
                           {% for mallStore in mallStores %}
                           <li>
-                              <a href="###"><img src="\{{mallStore.url}}" alt=""></a>
+                              <a href="/mallStoredes?mallStoreid={{mallStore.id}}"><img src="\{{mallStore.url}}"
+                                      alt=""></a>
                               <div class="miaoshu">
                                   <h3>222{{mallStore.title}}</h3>
                                   <p>{{mallStore.name}}</p>
@@ -203,7 +220,8 @@
                       <ul class="tab-select">
                           {% for mallStore in mallStores %}
                           <li>
-                              <a href="###"><img src="\{{mallStore.url}}" alt=""></a>
+                              <a href="/mallStoredes?mallStoreid={{mallStore.id}}"><img src="\{{mallStore.url}}"
+                                      alt=""></a>
                               <div class="miaoshu">
                                   <h3>333{{mallStore.title}}</h3>
                                   <p>{{mallStore.name}}</p>
@@ -215,7 +233,8 @@
                       <ul class="tab-select">
                            {% for mallStore in mallStores %}
                            <li>
-                               <a href="###"><img src="\{{mallStore.url}}" alt=""></a>
+                               <a href="/mallStoredes?mallStoreid={{mallStore.id}}"><img src="\{{mallStore.url}}"
+                                       alt=""></a>
                                <div class="miaoshu">
                                    <h3>44{{mallStore.title}}</h3>
                                    <p>{{mallStore.name}}</p>

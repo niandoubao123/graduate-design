@@ -295,7 +295,7 @@
 }
 .invitation{
     width: 1200px;
-    height: 820px;
+    height: auto;
     /* background: #ccc; */
     margin:0 auto;
 }

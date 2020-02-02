@@ -25,9 +25,12 @@
          <!-- 请柬模板开始 -->
          <div class="invitation-wrap">
              <div class="invitation">
-                 <ul>
+                 <ul style="overflow:hidden;clear:both;">
                       {% for invitation in invitations %}
-                       <li><img src="\{{invitation.url}}" alt=""><p>{{invitation.title}}</p></li>
+                       <li><a href="/invitationdes?invitationid={{invitation.id}}"><img src="\{{invitation.url}}"
+                                   alt="">
+                               <p>{{invitation.title}}</p>
+                           </a></li>
                       {% endfor %}
                  </ul>
              </div>

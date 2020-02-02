@@ -158,17 +158,20 @@ router.get('/hotel', function (req, res, next) {
 })
 //商城
 router.get('/mall', function (req, res, next) {
+    Lvpai.find().then(function (lvpais) {
     City.find().then(function (citys) {
         MallTao.find().then(function (mallTaos) {
            MallStore.find().then(function (mallStores) {
                 res.render("main/mall", {
                     userInfo: req.userInfo, //将信息给模板,首页
+                    lvpais:lvpais,
                     citys: citys,
                     mallTaos:mallTaos,
                     mallStores:mallStores
                 });
            })
         })
+    })
     })
 })
 //婚品展示页面
@@ -414,8 +417,126 @@ router.get('/showview', function (req, res) {
              message: '请先登录，才能查看',
              url: '/showPic'
          });
-    }
-
-    
+    }   
+});
+//***********************************************************所有详情页*********************************************************************** */
+//进入首页旅拍套餐详情页
+router.get('/lvpaides', function (req, res) {
+    var lvpaiId = req.query.lvpaiid || '';
+    Lvpai.findOne({
+        _id: lvpaiId
+    }).then(function (lvpais) {
+        res.render('main/view', {
+            userInfo: req.userInfo,
+            viewdes: lvpais
+        });
+    });
+});
+//进入首页热门城市详情页
+router.get('/citydes', function (req, res) {
+    var cityId = req.query.cityid || '';
+    City.findOne({
+        _id: cityId
+    }).then(function (citys) {
+        res.render('main/view', {
+            userInfo: req.userInfo,
+            viewdes: citys
+        });
+    });
+});
+//进入首页婚礼案例详情页
+router.get('/exampledes', function (req, res) {
+    var piccId = req.query.piccid || '';
+    Picc.findOne({
+        _id: piccId
+    }).then(function (piccs) {
+        res.render('main/view', {
+            userInfo: req.userInfo,
+            viewdes:piccs
+        });
+    });
+});
+//进入首页结婚美图详情页
+router.get('/beautydes', function (req, res) {
+    var beautyId = req.query.beautyid || '';
+    Beauty.findOne({
+        _id: beautyId
+    }).then(function (beautys) {
+        res.render('main/view', {
+            userInfo: req.userInfo,
+            viewdes: beautys
+        });
+    });
+});
+//进入图片请贴详情页
+router.get('/invitationdes', function (req, res) {
+    var invitationId = req.query.invitationid || '';
+    Invitation.findOne({
+        _id: invitationId
+    }).then(function (invitations) {
+        res.render('main/view', {
+            userInfo: req.userInfo,
+            viewdes: invitations
+        });
+    });
+});
+//进入婚宴酒店详情页
+router.get('/hoteldes', function (req, res) {
+    var hotelId = req.query.hotelid || '';
+    Hotel.findOne({
+        _id: hotelId
+    }).then(function (hotels) {
+        res.render('main/view', {
+            userInfo: req.userInfo,
+            viewdes: hotels
+        });
+    });
+});
+//进入结婚商城精选套餐详情页
+router.get('/mallTaodes', function (req, res) {
+    var mallTaoId = req.query.mallTaoid || '';
+    MallTao.findOne({
+        _id: mallTaoId
+    }).then(function (mallTaos) {
+        res.render('main/view', {
+            userInfo: req.userInfo,
+            viewdes: mallTaos
+        });
+    });
+});
+//进入结婚商城婚庆商家详情页
+router.get('/mallStoredes', function (req, res) {
+    var mallStoreId = req.query.mallStoreid || '';
+    MallStore.findOne({
+        _id: mallStoreId
+    }).then(function (mallStores) {
+        res.render('main/view', {
+            userInfo: req.userInfo,
+            viewdes: mallStores
+        });
+    });
+});
+//进入婚品采购物品详情页
+router.get('/thingsOnedes', function (req, res) {
+    var thingsOneId = req.query.thingsOneid || '';
+    ThingsOne.findOne({
+        _id: thingsOneId
+    }).then(function (thingsOnes) {
+        res.render('main/view', {
+            userInfo: req.userInfo,
+            viewdes: thingsOnes
+        });
+    });
+});
+router.get('/thingsTwodes', function (req, res) {
+    var thingsTwoId = req.query.thingsTwoid || '';
+    ThingsTwo.findOne({
+        _id: thingsTwoId
+    }).then(function (thingsTwos) {
+        res.render('main/view', {
+            userInfo: req.userInfo,
+            viewdes: thingsTwos
+        });
+    });
 });
 module.exports = router;

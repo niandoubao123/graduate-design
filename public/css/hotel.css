@@ -253,7 +253,7 @@
 .jiudian{
     width: 1200px;
     min-width: 1200px;
-    height:1280px;
+    height:auto;
     margin:0 auto;
 }
 .jiudian h1{
