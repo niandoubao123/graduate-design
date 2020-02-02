@@ -129,6 +129,7 @@
                   <div class="tabb">
                   <ul class="tab-select selected">
                        {% for mallTao in mallTaos %}
+                        {% if mallTao.num>='1' && mallTao.num<='4' %}
                        <li>
                            <a href="/mallTaodes?mallTaoid={{mallTao.id}}"><img src="\{{mallTao.url}}" alt=""></a>
                            <div class="miaoshu">
@@ -137,10 +138,12 @@
                                <span>{{mallTao.money}}起</span>
                            </div>
                        </li>
+                       {% endif %}
                        {% endfor %}
                   </ul>
                   <ul class="tab-select">
                         {% for mallTao in mallTaos %}
+                          {% if mallTao.num>='5' && mallTao.num<='8' %}
                         <li>
                            <a href="/mallTaodes?mallTaoid={{mallTao.id}}"><img src="\{{mallTao.url}}" alt=""></a>
                            <div class="miaoshu">
@@ -149,6 +152,7 @@
                                <span>{{mallTao.money}}起</span>
                            </div>
                        </li>
+                        {% endif %}
                         {% endfor %}
                   </ul>
                   <ul class="tab-select">

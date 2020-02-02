@@ -37,7 +37,9 @@
                  <h1>婚纱照</h1>
                   <ul>
                       {% for photo in photoOnes %}
-                      <li><img src="\{{photo.url}}" alt=""><p>{{photo.title}}</p></li>
+                      <li><a href="/photodes?photoid={{photo.id}}&&n=1"><img src="\{{photo.url}}" alt="">
+                              <p>{{photo.title}}</p>
+                          </a></li>
                       {% endfor %}
                      
                       <!-- <li><p>标题</p></li>
@@ -55,7 +57,10 @@
                 <h1>婚礼布置</h1>
                  <ul>
                       {% for photo in photoTwos %}
-                      <li><img src="\{{photo.url}}" alt=""><p>{{photo.title}}</p></li>
+                      <li><a href="/photodes?photoid={{photo.id}}&&n=2"><img src="\{{photo.url}}" alt="">
+                              <p>{{photo.title}}</p>
+                            </a>
+                      </li>
                       {% endfor %}
                  </ul>
             </div>
@@ -66,7 +71,10 @@
                  <h1>婚纱礼服</h1>
                    <ul>
                       {% for photo in photoThrees %}
-                      <li><img src="\{{photo.url}}" alt=""><p>{{photo.title}}</p></li>
+                      <li><a href="/photodes?photoid={{photo.id}}&&n=3}"><img src="\{{photo.url}}" alt="">
+                              <p>{{photo.title}}</p>
+                              </a>
+                      </li>
                       {% endfor %}        
                    </ul>
              </div>
@@ -77,7 +85,10 @@
                  <h1>婚礼跟拍</h1>
                    <ul>
                       {% for photo in photoFours %}
-                      <li><img src="\{{photo.url}}" alt=""><p>{{photo.title}}</p></li>
+                      <li><a href="/photodes?photoid={{photo.id}}&&n=4"><img src="\{{photo.url}}" alt="">
+                              <p>{{photo.title}}</p>
+                              </a>
+                      </li>
                       {% endfor %}
                    </ul>
              </div>

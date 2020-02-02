@@ -63,95 +63,51 @@
                     <li data-id="7">结婚用品</li>
                     <li data-id="8">婚礼时光</li>
                     <li data-id="9">备孕怀孕</li>
-                  </ul>
+                  </ul>    
                   <ul data-id="1" class="contents current">
+                    {% for ideaOne in ideaOnes %}
+                      {% if ideaOne.num>='1' && ideaOne.num<='4' %}
                        <li>
-                           <a><img src="images/idea/id1_1.jpg" alt=""></a>
-                           <a class="desc">2020年4月26日适合结婚吗 2020年4月黄历结婚好吗</a>
+                           <a href="/ideaOnedes?ideaOneid={{ideaOne.id}}"><img src="\{{ideaOne.url}}" alt=""></a>
+                           <a class="desc">{{ideaOne.title}}</a>
                        </li>
-                       <li>
-                           <a><img src="images/idea/id1_2.png" alt=""></a>
-                           <a class="desc">普通轿车租一天多少钱</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id1_3.png" alt=""></a>
-                           <a class="desc">第一次去男朋友家吃饭要注意什么</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id1_4.png" alt=""></a>
-                           <a class="desc">男朋友第一次见女方家长该送什么</a>
-                       </li>
-                  </ul>
+                     {% endif %}
+                    {% endfor %}
+                  </ul>  
                   <ul data-id="2" class="contents">
-                      <li>
-                           <a><img src="images/idea/id2_1.png" alt=""></a>
-                           <a class="desc">马住！史上最强洱海旅拍攻略</a>
-                       </li>
+                       {% for ideaOne in ideaOnes %}
+                       {% if ideaOne.num>='5' && ideaOne.num<='8' %}
                        <li>
-                            <a><img src="images/idea/id2_2.png" alt=""></a>
-                           <a class="desc">大理丽江旅拍哪家好</a>
+                           <a href="/ideaOnedes?ideaOneid={{ideaOne.id}}"><img src="\{{ideaOne.url}}" alt=""></a>
+                           <a class="desc">{{ideaOne.title}}</a>
                        </li>
-                       <li>
-                            <a><img src="images/idea/id2_3.png" alt=""></a>
-                           <a class="desc">率拍婚纱照前十名地方</a>
-                       </li>
-                       <li>
-                            <a><img src="images/idea/id2_4.jpg" alt=""></a>
-                           <a class="desc">拍婚纱照需要准备什么 拍婚纱照注意事项</a>
-                       </li>
+                       {% endif %}
+                       {% endfor %}
                   </ul>
                   <ul data-id="3" class="contents">
+                      {% for ideaOne in ideaOnes %}
+                      {% if ideaOne.num>='9' && ideaOne.num<='12' %}
                       <li>
-                           <a><img src="images/idea/id3_1.jpg" alt=""></a>
-                           <a class="desc">结婚婚车一般要几辆车 婚车数量有什么讲究</a>
-                       </li>
-                       <li>
-                            <a><img src="images/idea/id3_2.jpg" alt=""></a>
-                           <a class="desc">悦诗风吟散粉好用吗</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id3_3.jpg" alt=""></a>
-                           <a class="desc">结亲婚车安排攻略(婚车数量+婚车讲究+婚车上坐那些人)</a>
-                       </li>
-                       <li>
-                            <a><img src="images/idea/id3_4.png" alt=""></a>
-                           <a class="desc">婚庆为什么不请女主持 婚礼女司仪有什么优势</a>
-                       </li>
+                          <a href="/ideaOnedes?ideaOneid={{ideaOne.id}}"><img src="\{{ideaOne.url}}" alt=""></a>
+                          <a class="desc">{{ideaOne.title}}</a>
+                      </li>
+                      {% endif %}
+                      {% endfor %}
                   </ul>
                   <ul data-id="4" class="contents">
+                      {% for ideaOne in ideaOnes %}
+                      {% if ideaOne.num>='13' && ideaOne.num<='16' %}
                       <li>
-                           <a><img src="images/idea/id4_1.jpg" alt=""></a> 
-                           <a class="desc">这些细节没有注意，我的婚礼留下了永久的遗憾</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id4_2.jpg" alt=""></a>
-                           <a class="desc">结婚视频背景音乐50首</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id4_3.jpg" alt=""></a>
-                           <a class="desc">父母在孩子婚礼的致辞</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id4_4.jpg" alt=""></a>
-                           <a class="desc">小清新婚礼视频背景音乐推荐</a>
-                       </li>
+                          <a href="/ideaOnedes?ideaOneid={{ideaOne.id}}"><img src="\{{ideaOne.url}}" alt=""></a>
+                          <a class="desc">{{ideaOne.title}}</a>
+                      </li>
+                      {% endif %}
+                      {% endfor %}
                   </ul>
                   <ul data-id="5" class="contents">
                       <li>
                            <a><img src="images/idea/id5_1.jpg" alt=""></a>
                            <a class="desc">2020最新婚礼唯美邀请词</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id5_2.png" alt=""></a>
-                           <a class="desc">婚礼电子请柬制作(联系客服免费获取)</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id5_3.png" alt=""></a>
-                           <a class="desc">结婚请柬怎么写</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id5_4.png" alt=""></a>
-                           <a class="desc">婚礼邀请语怎么发朋友圈</a>
                        </li>
                   </ul>
                   <ul data-id="6" class="contents">
@@ -159,35 +115,11 @@
                           <a><img src="images/xihu0.jpg" alt=""></a>
                            <a class="desc">十大美白面膜推荐</a>
                        </li>
-                       <li>
-                           <a><img src="images/xihu03.jpg" alt=""></a>
-                           <a class="desc">如何自制芦荟面膜来美白祛斑</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id6_3.jpg" alt=""></a>
-                           <a class="desc">美白身体有哪些推荐</a>
-                       </li>
-                       <li>
-                           <a><img src="images/xihu02.png" alt=""></a>
-                           <a class="desc">一线品牌化妆品有哪些</a>
-                       </li>
                   </ul>
                   <ul data-id="7" class="contents">
                       <li>
                            <a><img src="images/idea/id7_1.jpg" alt=""></a>
                            <a class="desc">鱼尾婚纱适合什么身材</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id7_2.png" alt=""></a>
-                           <a class="desc">送婆婆实用贴心礼物</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id7_3.jpg" alt=""></a>
-                           <a class="desc">红包吉利数字一般是多少</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id7_4.jpg" alt=""></a>
-                           <a class="desc">送老公什么礼物会让他感动 </a>
                        </li>
                   </ul>
                   <ul data-id="8" class="contents">
@@ -195,38 +127,15 @@
                            <a><img src="images/idea/id8_1.jpg" alt=""></a>
                            <a class="desc">元旦去哪里玩最舒服 2020元旦的旅行手册</a>
                        </li>
-                       <li>
-                           <a><img src="images/idea/id8_2.jpg" alt=""></a>
-                           <a class="desc">男方第一次去女方家，女方要给红包吗？</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id8_3.gif" alt=""></a>
-                           <a class="desc">如何矜持的接受表白 怎么巧妙地暗示</a>
-                       </li>
-                       <li>
-                           <a><img src="images/idea/id8_4.jpg" alt=""></a>
-                           <a class="desc">国内适合旅游的地方</a>
-                       </li>
                   </ul>
                   <ul data-id="9" class="contents">
                       <li>
                            <a><img src="images/lvpai1.jpg" alt=""></a>
                            <a class="desc">2020年4月26日适合结婚吗 2020年4月黄历结婚好吗</a>
                        </li>
-                       <li>
-                           <a><img src="images/lvpai1.jpg" alt=""></a>
-                           <a class="desc">2020年4月26日适合结婚吗 2020年4月黄历结婚好吗</a>
-                       </li>
-                       <li>
-                           <a><img src="images/lvpai1.jpg" alt=""></a>
-                           <a class="desc">2020年4月26日适合结婚吗 2020年4月黄历结婚好吗</a>
-                       </li>
-                       <li>
-                           <a><img src="images/lvpai1.jpg" alt=""></a>
-                           <a class="desc">2020年4月26日适合结婚吗 2020年4月黄历结婚好吗</a>
-                       </li>
                   </ul>
              </div>
+             
          </div>
          <!--结婚流程结束-->
            <!-- 结婚攻略 -->
@@ -238,12 +147,9 @@
                    <p class="ask-smalltitle">结婚流程 / 拍婚纱照 / 婚礼布置 / 婚宴攻略 / 婚房布置 / 拍婚纱照 / 婚庆准备 / 婚品采购 / 婚纱礼服 / 备婚流程</p>
                    <div class="ask-content">
                        <ul>
-                           <li><a href="###">拍婚纱照需要多长时间？ </a></li>
-                           <li><a href="###">拍婚纱照有哪些技巧？ </a></li>
-                           <li><a href="###">婚纱照拍摄什么风格的最好看？</a></li>
-                           <li><a href="###">听说拍婚纱照做美甲会更上镜？</a></li>
-                           <li><a href="###">婚纱照该怎么选片才不会被坑？</a></li>
-                           <li><a href="###">结婚遇到大姨妈该怎么办？ </a></li>
+                           {% for ideaTwo in ideaTwos %}
+                           <li><a href="/ideaTwodes?ideaTwoid={{ideaTwo.id}}">{{ideaTwo.title}}</a></li>
+                           {% endfor %}
                        </ul>
                    </div>
                </div>

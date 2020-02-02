@@ -20,6 +20,8 @@ var Hotel = require('../models/hotelfiles/Hotel');
 var MallTao = require('../models/mallfiles/MallTao');
 var MallStore = require('../models/mallfiles/MallStore');
 var ShowPic = require('../models/showPicfiles/ShowPic');
+var IdeaOne = require('../models/ideafiles/IdeaOne');
+var IdeaTwo = require('../models/ideafiles/IdeaTwo');
 
 router.use(function (req, res, next) {
     if (!req.userInfo.isAdmin) {
@@ -709,8 +711,7 @@ router.get('/invitation/delete', function (req, res) {
     });
 
 });
-//************************************************************************************************************************* */
-//************************************************************************************************************************* */
+
 //************************************************************************************************************************* */
 //************************************************************************************************************************* */
 //************************************************************************************************************************* */
@@ -1805,6 +1806,276 @@ router.get('/photoThree/delete', function (req, res) {
             userInfo: req.userInfo,
             message: '删除成功',
             url: '/admin/photoThree'
+        });
+    });
+
+});
+//************************************************************************************************************************* */
+//结婚攻略一列表显示
+router.get('/ideaOne', function (req, res, next) {
+    var page = Number(req.query.page || 1);
+    var limit = 4;
+    var pages = 0;
+    IdeaOne.count().then(function (count) {
+        //计算总页数
+        pages = Math.ceil(count / limit);
+        //取值不能超过pages
+        page = Math.min(page, pages);
+        //取值不能小于1
+        page = Math.max(page, 1);
+        var skip = (page - 1) * limit;
+        IdeaOne.find().sort({
+            _id: -1
+        }).limit(limit).skip(skip).then(function (ideaOnes) {
+            res.render('admin/ideafiles/ideaOne-list', {
+                userInfo: req.userInfo,
+                ideaOnes: ideaOnes,
+                count: count,
+                pages: pages,
+                limit: limit,
+                page: page
+            });
+        });
+    })
+})
+//结婚攻略一添加页面
+router.get('/ideaOneAdd', function (req, res, next) {
+    res.render('admin/ideafiles/ideaOne-add', {
+        userInfo: req.userInfo,
+    })
+})
+//结婚攻略一增加操作
+router.post('/ideaOneAdd', function (req, res) {
+    var form = new multiparty.Form();
+    form.uploadDir = "uploads/ideaOne"; //上传图片保存的目录
+    form.parse(req, function (err, fields, files) {
+        var title = fields.title[0];
+        var content = fields.content[0];
+        var num = fields.num[0];
+        var url = files.url[0].path;
+        console.log(url, title,num);
+        //查询是否已经存在
+        IdeaOne.findOne({
+            title: title,
+            url: url,
+            num:num,
+            content:content
+        }, function (err, rs) {
+            if (rs) {
+                res.render('admin/success', {
+                    userInfo: req.userInfo,
+                    message: '图片已经存在'
+                });
+                return;
+            } else {
+                return new IdeaOne({
+                    title: title,
+                    url: url,
+                    num: num,
+                    content:content
+                }).save();
+            }
+        }).then(function (err, data) {
+            if (!err) {
+                res.render('admin/success', {
+                    userInfo: req.userInfo,
+                    message: '图片添加创建成功',
+                    url: '/admin/ideaOne'
+                });
+            }
+        })
+    });
+})
+//结婚攻略一编辑修改页面
+router.get('/ideaOne/update', function (req, res) {
+    var id = req.query.id || "";
+    IdeaOne.findOne({
+        _id: id
+    }).then(function (ideaOne) {
+        if (ideaOne) {
+            res.render('admin/ideafiles/ideaOne-edit', {
+                userInfo: req.userInfo,
+                ideaOne: ideaOne
+            });
+        }
+    })
+})
+//结婚攻略一编辑后保存
+router.post('/ideaOne/update', function (req, res) {
+    var form = new multiparty.Form();
+    form.uploadDir = "uploads/ideaOne"; //上传图片保存的目录
+    form.parse(req, function (err, fields, files) {
+        var id = fields._id[0];
+        var title = fields.title[0];
+        var content = fields.content[0];
+        var num = fields.num[0];
+        var url = files.url[0].path;
+        IdeaOne.update({
+            _id: id
+        }, {
+            title: title,
+            url: url,
+            num: num,
+            content: content
+        }, function (err, data) {
+            if (err) {
+                throw err;
+            } else {
+                res.render('admin/success', {
+                    userInfo: req.userInfo,
+                    message: '修改成功',
+                    url: '/admin/ideaOne'
+                });
+            }
+
+        })
+    });
+
+});
+// 结婚攻略一删除
+router.get('/ideaOne/delete', function (req, res) {
+    //获取要删除的分类的id
+    var id = req.query.id || '';
+    IdeaOne.remove({
+        _id: id
+    }).then(function () {
+        res.render('admin/success', {
+            userInfo: req.userInfo,
+            message: '删除成功',
+            url: '/admin/ideaOne'
+        });
+    });
+
+});
+//************************************************************************************************************************* */
+//************************************************************************************************************************* */
+//结婚攻略二列表显示
+router.get('/ideaTwo', function (req, res, next) {
+    var page = Number(req.query.page || 1);
+    var limit = 4;
+    var pages = 0;
+    IdeaTwo.count().then(function (count) {
+        //计算总页数
+        pages = Math.ceil(count / limit);
+        //取值不能超过pages
+        page = Math.min(page, pages);
+        //取值不能小于1
+        page = Math.max(page, 1);
+        var skip = (page - 1) * limit;
+        IdeaTwo.find().sort({
+            _id: -1
+        }).limit(limit).skip(skip).then(function (ideaTwos) {
+            res.render('admin/ideafiles/ideaTwo-list', {
+                userInfo: req.userInfo,
+                ideaTwos: ideaTwos,
+                count: count,
+                pages: pages,
+                limit: limit,
+                page: page
+            });
+        });
+    })
+})
+//结婚攻略二添加页面
+router.get('/ideaTwoAdd', function (req, res, next) {
+    res.render('admin/ideafiles/ideaTwo-add', {
+        userInfo: req.userInfo,
+    })
+})
+//结婚攻略二增加操作
+router.post('/ideaTwoAdd', function (req, res) {
+    var form = new multiparty.Form();
+    form.uploadDir = "uploads/ideaTwo"; //上传图片保存的目录
+    form.parse(req, function (err, fields, files) {
+        var title = fields.title[0];
+        var content = fields.content[0];
+        var num = fields.num[0];
+        console.log(title, num);
+        //查询是否已经存在
+        IdeaTwo.findOne({
+            title: title,
+            num: num,
+            content: content
+        }, function (err, rs) {
+            if (rs) {
+                res.render('admin/success', {
+                    userInfo: req.userInfo,
+                    message: '图片已经存在'
+                });
+                return;
+            } else {
+                return new IdeaTwo({
+                    title: title,
+                    num: num,
+                    content: content
+                }).save();
+            }
+        }).then(function (err, data) {
+            if (!err) {
+                res.render('admin/success', {
+                    userInfo: req.userInfo,
+                    message: '图片添加创建成功',
+                    url: '/admin/ideaTwo'
+                });
+            }
+        })
+    });
+})
+//结婚攻略二编辑修改页面
+router.get('/ideaTwo/update', function (req, res) {
+    var id = req.query.id || "";
+    IdeaTwo.findOne({
+        _id: id
+    }).then(function (ideaTwo) {
+        if (ideaTwo) {
+            res.render('admin/ideafiles/ideaTwo-edit', {
+                userInfo: req.userInfo,
+                ideaTwo: ideaTwo
+            });
+        }
+    })
+})
+//结婚攻略二编辑后保存
+router.post('/ideaTwo/update', function (req, res) {
+    var form = new multiparty.Form();
+    form.uploadDir = "uploads/ideaTwo"; //上传图片保存的目录
+    form.parse(req, function (err, fields, files) {
+        var id = fields._id[0];
+        var title = fields.title[0];
+        var content = fields.content[0];
+        var num = fields.num[0];
+        IdeaTwo.update({
+            _id: id
+        }, {
+            title: title,
+            num: num,
+            content: content
+        }, function (err, data) {
+            if (err) {
+                throw err;
+            } else {
+                res.render('admin/success', {
+                    userInfo: req.userInfo,
+                    message: '修改成功',
+                    url: '/admin/ideaTwo'
+                });
+            }
+
+        })
+    });
+
+});
+// 结婚攻略二删除
+router.get('/ideaTwo/delete', function (req, res) {
+    //获取要删除的分类的id
+    var id = req.query.id || '';
+    IdeaTwo.remove({
+        _id: id
+    }).then(function () {
+        res.render('admin/success', {
+            userInfo: req.userInfo,
+            message: '删除成功',
+            url: '/admin/ideaTwo'
         });
     });
 

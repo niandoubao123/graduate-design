@@ -21,6 +21,8 @@ var MallTao = require('../models/mallfiles/MallTao');
 var MallStore = require('../models/mallfiles/MallStore');
 var Hotel = require('../models/hotelfiles/Hotel');
 var ShowPic = require('../models/showPicfiles/ShowPic');
+var IdeaOne = require('../models/ideafiles/IdeaOne');
+var IdeaTwo = require('../models/ideafiles/IdeaTwo');
 
 ///////////////////////////////////支付//////////////////////////////////////////////////////
 const path = require("path");
@@ -294,9 +296,15 @@ router.get('/orderConfirm', function (req, res, next) {
 })
 //攻略
 router.get('/idea', function (req, res, next) {
-    res.render("main/idea", {
-        userInfo: req.userInfo //将信息给模板,首页
-    });
+    IdeaOne.find().then(function (ideaOnes) {
+    IdeaTwo.find().then(function (ideaTwos) {
+        res.render("main/idea", {
+            userInfo: req.userInfo, //将信息给模板,首页
+            ideaOnes: ideaOnes,
+            ideaTwos: ideaTwos
+        });
+    })
+    })
 })
 //美图
 router.get('/pic', function (req, res, next) {
@@ -538,5 +546,76 @@ router.get('/thingsTwodes', function (req, res) {
             viewdes: thingsTwos
         });
     });
+});
+//进入结婚攻略上详情页
+router.get('/ideaOnedes', function (req, res) {
+    var ideaOneId = req.query.ideaOneid || '';
+    IdeaOne.findOne({
+        _id: ideaOneId
+    }).then(function (ideaOnes) {
+        res.render('main/view', {
+            userInfo: req.userInfo,
+            viewdes: ideaOnes
+        });
+    });
+});
+//进入结婚攻略下详情页
+router.get('/ideaTwodes', function (req, res) {
+    var ideaTwoId = req.query.ideaTwoid || '';
+    IdeaTwo.findOne({
+        _id: ideaTwoId
+    }).then(function (ideaTwos) {
+        res.render('main/view', {
+            userInfo: req.userInfo,
+            viewdes: ideaTwos
+        });
+    });
+});
+//进入结婚美图大图详情页
+router.get('/photodes', function (req, res) {
+    var photoId = req.query.photoid || '';
+    var N = req.query.n|| '';
+    console.log(N)
+    if(N==1){
+        PhotoOne.findOne({
+            _id: photoId
+        }).then(function (photoOnes) {
+            res.render('main/view', {
+                userInfo: req.userInfo,
+                viewdes: photoOnes
+            });
+        });
+    }
+    if(N==2){
+        PhotoTwo.findOne({
+            _id: photoId
+        }).then(function (photoTwos) {
+            res.render('main/view', {
+                userInfo: req.userInfo,
+                viewdes: photoTwos
+            });
+        });
+    }
+    if(N==3){
+        PhotoThree.findOne({
+            _id: photoId
+        }).then(function (photoThrees) {
+            res.render('main/view', {
+                userInfo: req.userInfo,
+                viewdes: photoThrees
+            });
+        });
+    }
+    if(N==4){
+        PhotoFour.findOne({
+            _id: photoId
+        }).then(function (photoFours) {
+            res.render('main/view', {
+                userInfo: req.userInfo,
+                viewdes: photoFours
+            });
+        });
+    }
+
 });
 module.exports = router;
