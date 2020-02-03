@@ -11,35 +11,6 @@
                   <div class="lvpai-top">
                       <h1>旅拍套餐推荐</h1>
                   </div>
-                  <!-- <div class="lvpai-middle">
-                      <div class="lvpai-middle-left lvpai-middle-show">
-                          <img src="images/lvpai1.jpg" alt="" />
-                          <div class="meng"></div>
-                          <span class="lvpai-place">厦门</span>
-                          <p class="lvpai-tittle">【大牌捡漏4999】+旅拍新趋势ins风</p>
-                          <span class="lvpai-money">￥4999</span>
-                          <p class="lvpai-store">厦门古婚纱摄影</p>
-                          <a href="###" class="lvpaigo"><span></span></a>
-                      </div>
-                      <div class="lvpai-middle-middle lvpai-middle-show">
-                          <img src="images/lvpai2.jpg" alt="" />
-                          <div class="meng"></div>
-                          <span class="lvpai-place">三亚</span>
-                          <p class="lvpai-tittle">人气推荐【补贴机票1000】12款礼服</p>
-                          <span class="lvpai-money">￥4999</span>
-                          <p class="lvpai-store">三亚米娅婚纱摄影</p>
-                          <a href="###" class="lvpaigo"><span></span></a>
-                      </div>
-                      <div class="lvpai-middle-right lvpai-middle-show">
-                          <img src="images/lvpai3.jpg" alt="" />
-                          <div class="meng"></div>
-                          <span class="lvpai-place">丽江</span>
-                          <p class="lvpai-tittle">【先拍后付】机票补贴+客栈+一价全包</p>
-                          <span class="lvpai-money">￥4999</span>
-                          <p class="lvpai-store">厦门古婚纱摄影</p>
-                          <a href="###" class="lvpaigo"><span></span></a>
-                      </div>
-                  </div> -->
                   <div class="lvpai-bottom">
                         {% for lvpai in lvpais %}
                         <div class="lvpai-bottom-show lvpai-bottom-one">
@@ -54,42 +25,6 @@
                             </a>
                         </div>
                         {% endfor %}
-                      <!-- <div class="lvpai-bottom-show lvpai-bottom-one">
-                          <img src="images/lvpai4.jpg" alt="" />
-                          <div class="meng2"></div>
-                          <div class="lvpai-bottom-xia">
-                              <p class="lvpai-btitle">【机票补贴1000元】全国包邮</p>
-                              <p class="lvpai-bstore">厦门台北纱罗婚纱摄影·厦门</p>
-                              <span class="lvpai-bmoney">￥4999</span>
-                          </div>
-                      </div>
-                      <div class="lvpai-bottom-show lvpai-bottom-two">
-                          <img src="images/lvpai5.jpg" alt="" />
-                          <div class="meng2"></div>
-                          <div class="lvpai-bottom-xia">
-                              <p class="lvpai-btitle">【国庆钜惠】3天2晚海景房</p>
-                              <p class="lvpai-bstore">提拉米苏环球摄影·三亚</p>
-                              <span class="lvpai-bmoney">￥5999</span>
-                          </div>
-                      </div>
-                      <div class="lvpai-bottom-show lvpai-bottom-three">
-                          <img src="images/lvpai6.jpg" alt="" />
-                          <div class="meng2"></div>
-                          <div class="lvpai-bottom-xia">
-                              <p class="lvpai-btitle">人气推荐【机票补贴1000元】</p>
-                              <p class="lvpai-bstore">三亚米娅婚纱摄影·三亚</p>
-                              <span class="lvpai-bmoney">￥4999</span>
-                          </div>
-                      </div>
-                      <div class="lvpai-bottom-show lvpai-bottom-four">
-                          <img src="images/lvpai7.jpg" alt="" />
-                          <div class="meng2"></div>
-                          <div class="lvpai-bottom-xia">
-                              <p class="lvpai-btitle">先拍摄后付款【海景潮拍】</p>
-                              <p class="lvpai-bstore">玛格映画全球旅拍·青岛</p>
-                              <span class="lvpai-bmoney">￥6999</span>
-                          </div>
-                      </div> -->
                   </div>
               </div>
           </div>
@@ -131,7 +66,7 @@
                        {% for mallTao in mallTaos %}
                         {% if mallTao.num>='1' && mallTao.num<='4' %}
                        <li>
-                           <a href="/mallTaodes?mallTaoid={{mallTao.id}}"><img src="\{{mallTao.url}}" alt=""></a>
+                           <a href="/malldes?mallid={{mallTao.id}}&&n=3"><img src="\{{mallTao.url}}" alt=""></a>
                            <div class="miaoshu">
                                <h3>11{{mallTao.title}}</h3>
                                <p>{{mallTao.name}}</p>
@@ -145,7 +80,7 @@
                         {% for mallTao in mallTaos %}
                           {% if mallTao.num>='5' && mallTao.num<='8' %}
                         <li>
-                           <a href="/mallTaodes?mallTaoid={{mallTao.id}}"><img src="\{{mallTao.url}}" alt=""></a>
+                           <a href="/malldes?mallid={{mallTao.id}}&&n=3"><img src="\{{mallTao.url}}" alt=""></a>
                            <div class="miaoshu">
                                <h3>2{{mallTao.title}}</h3>
                                <p>{{mallTao.name}}</p>
@@ -158,7 +93,7 @@
                   <ul class="tab-select">
                      {% for mallTao in mallTaos %}
                      <li>
-                         <a href="/mallTaodes?mallTaoid={{mallTao.id}}"><img src="\{{mallTao.url}}" alt=""></a>
+                         <a href="/malldes?mallid={{mallTao.id}}&&n=3"><img src="\{{mallTao.url}}" alt=""></a>
                          <div class="miaoshu">
                              <h3>33{{mallTao.title}}</h3>
                              <p>{{mallTao.name}}</p>
@@ -170,7 +105,7 @@
                   <ul class="tab-select">
                         {% for mallTao in mallTaos %}
                         <li>
-                            <a href="/mallTaodes?mallTaoid={{mallTao.id}}"><img src="\{{mallTao.url}}" alt=""></a>
+                            <a href="/malldes?mallid={{mallTao.id}}&&n=3"><img src="\{{mallTao.url}}" alt=""></a>
                             <div class="miaoshu">
                                 <h3>44{{mallTao.title}}</h3>
                                 <p>{{mallTao.name}}</p>
@@ -198,7 +133,7 @@
                       <ul class="tab-select selected">
                           {% for mallStore in mallStores %}
                           <li>
-                              <a href="/mallStoredes?mallStoreid={{mallStore.id}}"><img src="\{{mallStore.url}}"
+                              <a href="/malldes?mallid={{mallStore.id}}&&n=4"><img src="\{{mallStore.url}}"
                                       alt=""></a>
                               <div class="miaoshu">
                                   <h3>111{{mallStore.title}}</h3>
@@ -211,7 +146,7 @@
                       <ul class="tab-select">
                           {% for mallStore in mallStores %}
                           <li>
-                              <a href="/mallStoredes?mallStoreid={{mallStore.id}}"><img src="\{{mallStore.url}}"
+                              <a href="/malldes?mallid={{mallStore.id}}&&n=4"><img src="\{{mallStore.url}}"
                                       alt=""></a>
                               <div class="miaoshu">
                                   <h3>222{{mallStore.title}}</h3>
@@ -224,7 +159,7 @@
                       <ul class="tab-select">
                           {% for mallStore in mallStores %}
                           <li>
-                              <a href="/mallStoredes?mallStoreid={{mallStore.id}}"><img src="\{{mallStore.url}}"
+                              <a href="/malldes?mallid={{mallStore.id}}&&n=4"><img src="\{{mallStore.url}}"
                                       alt=""></a>
                               <div class="miaoshu">
                                   <h3>333{{mallStore.title}}</h3>
@@ -237,7 +172,7 @@
                       <ul class="tab-select">
                            {% for mallStore in mallStores %}
                            <li>
-                               <a href="/mallStoredes?mallStoreid={{mallStore.id}}"><img src="\{{mallStore.url}}"
+                               <a href="/malldes?mallid={{mallStore.id}}&&n=4"><img src="\{{mallStore.url}}"
                                        alt=""></a>
                                <div class="miaoshu">
                                    <h3>44{{mallStore.title}}</h3>

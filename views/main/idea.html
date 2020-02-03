@@ -68,7 +68,7 @@
                     {% for ideaOne in ideaOnes %}
                       {% if ideaOne.num>='1' && ideaOne.num<='4' %}
                        <li>
-                           <a href="/ideaOnedes?ideaOneid={{ideaOne.id}}"><img src="\{{ideaOne.url}}" alt=""></a>
+                           <a href="/ideades?ideaid={{ideaOne.id}}&&n=1"><img src="\{{ideaOne.url}}" alt=""></a>
                            <a class="desc">{{ideaOne.title}}</a>
                        </li>
                      {% endif %}
@@ -78,7 +78,7 @@
                        {% for ideaOne in ideaOnes %}
                        {% if ideaOne.num>='5' && ideaOne.num<='8' %}
                        <li>
-                           <a href="/ideaOnedes?ideaOneid={{ideaOne.id}}"><img src="\{{ideaOne.url}}" alt=""></a>
+                           <a href="/ideades?ideaid={{ideaOne.id}}&&n=1"><img src="\{{ideaOne.url}}" alt=""></a>
                            <a class="desc">{{ideaOne.title}}</a>
                        </li>
                        {% endif %}
@@ -88,7 +88,7 @@
                       {% for ideaOne in ideaOnes %}
                       {% if ideaOne.num>='9' && ideaOne.num<='12' %}
                       <li>
-                          <a href="/ideaOnedes?ideaOneid={{ideaOne.id}}"><img src="\{{ideaOne.url}}" alt=""></a>
+                          <a href="/ideades?ideaid={{ideaOne.id}}&&n=1"><img src="\{{ideaOne.url}}" alt=""></a>
                           <a class="desc">{{ideaOne.title}}</a>
                       </li>
                       {% endif %}
@@ -98,7 +98,7 @@
                       {% for ideaOne in ideaOnes %}
                       {% if ideaOne.num>='13' && ideaOne.num<='16' %}
                       <li>
-                          <a href="/ideaOnedes?ideaOneid={{ideaOne.id}}"><img src="\{{ideaOne.url}}" alt=""></a>
+                          <a href="/ideades?ideaid={{ideaOne.id}}&&n=1"><img src="\{{ideaOne.url}}" alt=""></a>
                           <a class="desc">{{ideaOne.title}}</a>
                       </li>
                       {% endif %}
@@ -148,7 +148,7 @@
                    <div class="ask-content">
                        <ul>
                            {% for ideaTwo in ideaTwos %}
-                           <li><a href="/ideaTwodes?ideaTwoid={{ideaTwo.id}}">{{ideaTwo.title}}</a></li>
+                           <li><a href="/ideades?ideaid={{ideaTwo.id}}&&n=2">{{ideaTwo.title}}</a></li>
                            {% endfor %}
                        </ul>
                    </div>

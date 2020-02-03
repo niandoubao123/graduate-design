@@ -29,15 +29,16 @@
 }
 .dengluqu,.zhucequ{
     width: 340px;
-    height: 340px;
+    height: 400px;
     /*background: red;*/
     float: left;
-    padding:30px;
+    padding:0 30px;
 }
 h2{
     color:white;
     text-align: left;
-    font-size: 30px;
+    height: 50px;
+    line-height: 30px;
 }
 .denglukuai{
     width: 339px;

@@ -501,75 +501,82 @@ router.get('/hoteldes', function (req, res) {
     });
 });
 //进入结婚商城精选套餐详情页
-router.get('/mallTaodes', function (req, res) {
-    var mallTaoId = req.query.mallTaoid || '';
-    MallTao.findOne({
-        _id: mallTaoId
-    }).then(function (mallTaos) {
-        res.render('main/view', {
-            userInfo: req.userInfo,
-            viewdes: mallTaos
+router.get('/malldes', function (req, res) {
+    var mallId = req.query.mallid || '';
+    var N = req.query.n || '';
+    if(N==3){
+        MallTao.findOne({
+            _id: mallId
+        }).then(function (mallTaos) {
+            res.render('main/view', {
+                userInfo: req.userInfo,
+                viewdes: mallTaos
+            });
         });
-    });
-});
-//进入结婚商城婚庆商家详情页
-router.get('/mallStoredes', function (req, res) {
-    var mallStoreId = req.query.mallStoreid || '';
-    MallStore.findOne({
-        _id: mallStoreId
-    }).then(function (mallStores) {
-        res.render('main/view', {
-            userInfo: req.userInfo,
-            viewdes: mallStores
-        });
-    });
+    }
+    if(N==4){
+         MallStore.findOne({
+             _id: mallId
+         }).then(function (mallStores) {
+             res.render('main/view', {
+                 userInfo: req.userInfo,
+                 viewdes: mallStores
+             });
+         });
+    }
+    
 });
 //进入婚品采购物品详情页
-router.get('/thingsOnedes', function (req, res) {
-    var thingsOneId = req.query.thingsOneid || '';
-    ThingsOne.findOne({
-        _id: thingsOneId
-    }).then(function (thingsOnes) {
-        res.render('main/view', {
-            userInfo: req.userInfo,
-            viewdes: thingsOnes
+router.get('/thingsdes', function (req, res) {
+    var thingsId = req.query.thingsid || '';
+    var N = req.query.n || '';
+    if(N==1){
+         ThingsOne.findOne({
+             _id: thingsId
+         }).then(function (thingsOnes) {
+             res.render('main/view', {
+                 userInfo: req.userInfo,
+                 viewdes: thingsOnes
+             });
+         });
+    }
+    if(N==2){
+        ThingsTwo.findOne({
+            _id: thingsId
+        }).then(function (thingsTwos) {
+            res.render('main/view', {
+                userInfo: req.userInfo,
+                viewdes: thingsTwos
+            });
         });
-    });
-});
-router.get('/thingsTwodes', function (req, res) {
-    var thingsTwoId = req.query.thingsTwoid || '';
-    ThingsTwo.findOne({
-        _id: thingsTwoId
-    }).then(function (thingsTwos) {
-        res.render('main/view', {
-            userInfo: req.userInfo,
-            viewdes: thingsTwos
-        });
-    });
+    }
+   
 });
 //进入结婚攻略上详情页
-router.get('/ideaOnedes', function (req, res) {
-    var ideaOneId = req.query.ideaOneid || '';
-    IdeaOne.findOne({
-        _id: ideaOneId
-    }).then(function (ideaOnes) {
-        res.render('main/view', {
-            userInfo: req.userInfo,
-            viewdes: ideaOnes
+router.get('/ideades', function (req, res) {
+    var ideaId = req.query.ideaid || '';
+    var N = req.query.n || '';
+    if(N==1){
+         IdeaOne.findOne({
+             _id: ideaId
+         }).then(function (ideaOnes) {
+             res.render('main/view', {
+                 userInfo: req.userInfo,
+                 viewdes: ideaOnes
+             });
+         });
+    }
+    if(N==2){
+        IdeaTwo.findOne({
+            _id: ideaId
+        }).then(function (ideaTwos) {
+            res.render('main/view', {
+                userInfo: req.userInfo,
+                viewdes: ideaTwos
+            });
         });
-    });
-});
-//进入结婚攻略下详情页
-router.get('/ideaTwodes', function (req, res) {
-    var ideaTwoId = req.query.ideaTwoid || '';
-    IdeaTwo.findOne({
-        _id: ideaTwoId
-    }).then(function (ideaTwos) {
-        res.render('main/view', {
-            userInfo: req.userInfo,
-            viewdes: ideaTwos
-        });
-    });
+    }
+   
 });
 //进入结婚美图大图详情页
 router.get('/photodes', function (req, res) {

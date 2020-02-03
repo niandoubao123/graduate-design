@@ -103,12 +103,25 @@ router.get('/user/logout', function (req, res) {
 router.post('/user/contact', function (req, res, next) {
     var phoneNumber = req.body.phoneNumber;
     var honeyName = req.body.honeyName;
+    //判空
+    if (phoneNumber == "") {
+        responseData.code = 1;
+        responseData.message = "电话号码不能为空";
+        res.json(responseData);
+        return;
+    }
+    if (honeyName == "") {
+        responseData.code = 2;
+        responseData.message = "姓名不能为空";
+        res.json(responseData);
+        return;
+    }
     //如果已经存在
     Contact.findOne({
         phoneNumber:phoneNumber
     }, function (err, contact) {
         if (contact) { //如果存在在
-            responseData.code = 1;
+            responseData.code = 3;
             responseData.message = "用户已经提交过";
             res.json(responseData);
             return;
