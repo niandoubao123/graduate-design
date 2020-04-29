@@ -27,5 +27,6 @@ $('.jiudian .status').each((index,item)=>{
 $('.lvpai-bottom-xia .status').each((index, item) => {
     $(item).click(() => {
         alert('预定成功')
+        console.log("预定")
     })
 })
