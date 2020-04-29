@@ -26,6 +26,7 @@ var IdeaTwo = require('../models/ideafiles/IdeaTwo');
 var User = require('../models/User')
 var Address = require('../models/Address')
 var Collection = require('../models/collection')
+var Reserve = require('../models/Reserve')
 
 ///////////////////////////////////支付//////////////////////////////////////////////////////
 const path = require("path");
@@ -802,6 +803,35 @@ router.post('/mySet/addressEdit',(req,res)=>{
                 url: '/mySet/address'
             });
         }
+    })
+})
+
+//我的预定页面
+router.get('/mySet/myReserve',(req,res)=>{
+    Reserve.findOne({
+        username:req.userInfo.username
+    }).then((reserves)=>{
+        res.render('main/myset/myReserve', {
+            userInfo: req.userInfo,
+            reserves: reserves
+        })
+    })
+})
+//取消预定
+router.get('/mySet/myReserveDel', (req, res) => {
+    console.log(req.query.reserveId)
+    Reserve.findOne({
+        username: req.userInfo.username
+    }).then((data) => {
+        let index = data.goods.findIndex(item=>item.reserveId == req.query.reserveId);
+        data.goods.splice(index,1)
+        data.markModified('goods');
+        res.render('main/success', {
+            userInfo: req.userInfo,
+            message: '地址删除成功',
+            url: '/mySet/myReserve'
+        });
+        return data.save()
     })
 })
 module.exports = router;

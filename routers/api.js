@@ -8,6 +8,7 @@ var ThingsTwo = require('../models/thingsfiles/ThingsTwo')
 var AddCar = require('../models/thingsfiles/AddCar')
 var Hotel = require('../models/hotelfiles/Hotel')
 var Collection = require('../models/collection')
+var Reserve = require('../models/Reserve')
 
 var Collect = require('../func/collect')
 //验证逻辑
@@ -312,5 +313,48 @@ router.post('/hotelCollection', (req, res) => {
     //         res.json({msg:"成功",code:200})
     //     }
     // })
+})
+//预定套餐
+router.post('/reserveMeal', (req, res) => {
+    const datas = req.body;
+    Reserve.findOne({
+        username: req.userInfo.username
+    }, function (err, rs) {
+        if (rs) {
+            let index = rs.goods.findIndex(item => item.title == req.body.title)
+            if (index != -1) {
+                res.json({
+                    code: 200,
+                    msg: "不要重复预定"
+                })
+                return;
+            } else {
+                rs.goods.push(datas);
+                rs.markModified('goods')
+                res.json({
+                    code: 200,
+                    msg: "预定成功,在设置中查看"
+                })
+                return rs.save()
+            }
+        } else {
+            res.json({
+                code: 200,
+                msg: "预定成功,在设置中查看"
+            })
+            return new Reserve({
+                username: req.userInfo.username,
+                goods: [{
+                    title: req.body.title,
+                    money: req.body.money,
+                    place: req.body.place,
+                    url: req.body.url,
+                    collectionId: req.body.collectionId
+                }]
+            }).save()
+        }
+    }).then((data) => {
+        // console.log(data)       
+    })
 })
 module.exports = router;

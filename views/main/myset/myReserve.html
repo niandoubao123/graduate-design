@@ -1,0 +1,27 @@
+{% extends '../layout.html' %}
+{% block main %}
+<div id="myAddressWrap">
+    {% if userInfo._id %}
+    <h2 style="width:100%;font-size:18px;font-weight: bolder; height: 50px;line-height: 50px;">用户名 {{reserves.username}} </h2>
+     {% for lvpai in reserves.goods %}
+     <div class="lvpai-bottom-show lvpai-bottom-one" style="margin-right: 20px;">
+         <a href="/lvpaides?lvpaiid={{lvpai.reserveId}}">
+             <img src="/{{lvpai.url}}" alt="" />
+         </a>
+         <div class="meng2"></div>
+         <div class="lvpai-bottom-xia">
+            <p class="lvpai-btitle" style="text-overflow: clip;">{{lvpai.title}}</p>
+            <p class="lvpai-bstore">{{lvpai.place}}</p>
+            <span class="lvpai-bmoney">{{lvpai.money}}</span>
+            <a href="/mySet/myReserveDel?reserveId={{lvpai.reserveId}}" style="display: block;width: 40px;height: 20px;position: relative;left: 130px;bottom: 28px; ">删除 <img src="/iconfont/shanchu.svg" alt="" style="width: 20px;height: 20px;position: absolute;left: 40px; "> </a>
+         </div>
+     </div>
+     {% endfor %}
+    {% else %}
+    <h1>请先登录</h1>
+    {% endif %}
+</div>
+<div id="backBtn-myset" style="margin-top: 200px;">
+    <a href="/mySet">返回设置</a>
+</div>
+{% endblock %}

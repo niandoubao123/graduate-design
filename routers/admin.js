@@ -22,6 +22,7 @@ var MallStore = require('../models/mallfiles/MallStore');
 var ShowPic = require('../models/showPicfiles/ShowPic');
 var IdeaOne = require('../models/ideafiles/IdeaOne');
 var IdeaTwo = require('../models/ideafiles/IdeaTwo');
+var Reserve = require('../models/Reserve')
 
 router.use(function (req, res, next) {
     if (!req.userInfo.isAdmin) {
@@ -2299,4 +2300,32 @@ router.get('/showPicComment/delete', function (req, res) {
         });
     });
 });
+
+//用户套餐预定
+router.get('/reserve',(req,res)=>{
+    var page = Number(req.query.page || 1);
+    var limit = 1;
+    var pages = 0;
+    Reserve.count().then(function (count) {
+        //计算总页数
+        pages = Math.ceil(count / limit);
+        //取值不能超过pages
+        page = Math.min(page, pages);
+        //取值不能小于1
+        page = Math.max(page, 1);
+        var skip = (page - 1) * limit;
+        Reserve.find().sort({
+            _id: -1
+        }).limit(limit).skip(skip).then(function (reserves) {
+            res.render('admin/reserve', {
+                userInfo: req.userInfo,
+                reserves: reserves,
+                count: count,
+                pages: pages,
+                limit: limit,
+                page: page
+            });
+        });
+    })
+})
 module.exports = router;
