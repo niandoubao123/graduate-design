@@ -1,0 +1,27 @@
+{% extends '../layout.html' %}
+{% block main %}
+<div id="myInfoWrap">
+    <h1>我的信息</h1>   
+    {% if userInfo._id %}
+    <ul id="myInfo" style="width:1000px;height:auto;">
+        <li><div>用户名</div><div>{{info.username}}</div></li>
+        <li><div>密码</div><div>{{info.password}}</div></li>
+        <li><div>身份</div>
+            {% if info.isAdmin==true %}
+            <div>管理员</div>
+            {% else %}
+            <div>普通用户</div>
+            {% endif %}
+        </li>
+    </ul>
+    <div id="backBtn-myset" style="margin-top: 20px;">
+        <a href="/mySet/myInfoEdit?username={{info.username}}">修改信息</a>
+    </div>
+    {% else %}
+    <h1>请先登录</h1>
+    {% endif %}
+    <div id="backBtn-myset" style="margin-top: 20px;">
+        <a href="/mySet">返回设置</a>
+    </div>
+</div>
+{% endblock %}

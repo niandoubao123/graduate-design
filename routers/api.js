@@ -6,6 +6,10 @@ var ShowPic = require('../models/showPicfiles/ShowPic')
 var ThingsOne = require('../models/thingsfiles/ThingsOne')
 var ThingsTwo = require('../models/thingsfiles/ThingsTwo')
 var AddCar = require('../models/thingsfiles/AddCar')
+var Hotel = require('../models/hotelfiles/Hotel')
+var Collection = require('../models/collection')
+
+var Collect = require('../func/collect')
 //验证逻辑
 var responseData;
 router.use(function (req, res, next) {
@@ -94,7 +98,7 @@ router.post('/user/login', function (req, res) {
         return;
     })
 })
-//  退出登录
+//退出登录
 router.get('/user/logout', function (req, res) {
     req.cookies.set('userInfo', null);
     res.json(responseData);
@@ -155,24 +159,42 @@ router.get('/AddCar', function (req, res) {
 //添加购物车
 router.post('/AddCar/post', function (req, res) {
     var userId = req.body.userid || '';
+
+    var goodstitle = req.body.goodstitle || '';
+    var goodsurl = req.body.goodsurl || '';
     var postData = {
         goodsTitle: req.body.goodstitle,
         goodsUrl: req.body.goodsurl,
-        goodsMoney: req.body.goodsmoney
+        goodsMoney: req.body.goodsmoney,
+        num: 1
     };
     // console.log(userId,postData)
     //查询当前这订单的信息
     AddCar.findOne({
         username: userId
     }).then(function (addCar) {
-        addCar.goods.push(postData);
-        return addCar.save();
+
+        let index = addCar.goods.findIndex(item=>item.goodsTitle==goodstitle&&item.goodsUrl==goodsurl);
+        // console.log(index)
+        //商品已存在数目加一
+        if(index!=-1){
+            addCar.goods[index].num+=1;
+            addCar.markModified('goods')
+            return addCar.save();
+        }else{
+            //向购物车插入商品
+            addCar.goods.push(postData);
+            return addCar.save();
+        }
+
+        // addCar.goods.push(postData);
+        // return addCar.save();
     }).then(function (newAddCar) {
-        responseData.message = '添加成功';
+        responseData.message = '已经在购物车等你';
         responseData.data = newAddCar;
         res.json(responseData);
     });
-} ) 
+}) 
 // 订单删除
 router.post('/AddCar/delete', function (req, res) {
     //获取要删除的分类的id
@@ -221,4 +243,74 @@ router.post('/comment/post', function (req, res) {
         res.json(responseData);
     });
 });
+//酒店收藏
+router.post('/hotelCollection', (req, res) => {
+    const datas = req.body;
+    datas.type = 0;
+    Collection.findOne({
+        username:req.userInfo.username
+    },function(err,rs){
+        if(rs){
+            let index = rs.goods.findIndex(item=>item.title == req.body.title)
+            if(index!=-1){
+                res.json({code:200,msg:"不要重复收藏"})
+                return;
+            }else{
+                rs.goods.push(datas);
+                rs.markModified('goods')
+                res.json({code:200,msg:"收藏成功"})
+                return rs.save()
+            }
+        }else{
+            res.json({code:200,msg:"收藏成功"})
+            return new Collection({
+                username: req.userInfo.username,
+                goods: [{
+                    type: 0,
+                    title: req.body.title,
+                    money: req.body.money,
+                    place: req.body.place,
+                    url: req.body.url,
+                    collectionId: req.body.collectionId
+                }]
+            }).save()
+        }
+    }).then((data)=>{
+        // console.log(data)       
+    })
+    // Collect.collect(req.userInfo.username, req.body, 0, User,  function (data) {
+    //     res.json(data)
+    // })
+    // var collectionId = req.body.collectionId
+    // var status1 = !(Boolean(Number(req.body.status)));
+    // var data={
+    //     type:0,
+    //     collectionId: collectionId
+    // }
+    // if(status1==0){
+    //     console.log("取消")
+    //     User.findOne({
+    //         username: req.userInfo.username
+    //     }).then((user) => {
+    //         user.goods.splice(data.collectionId,1);
+    //         return user.save()
+    //     })
+    // }
+    // if(status1==1) {
+    //     console.log('收藏');
+    //     User.findOne({
+    //         username: req.userInfo.username
+    //     }).then((user) => {
+    //         user.goods.push(data);
+    //         return user.save()
+    //     })
+    // }  
+    // Hotel.update({_id:collectionId},{status:status1},(err,data)=>{
+    //     if(err){
+    //         console.log(err)
+    //     }else{
+    //         res.json({msg:"成功",code:200})
+    //     }
+    // })
+})
 module.exports = router;

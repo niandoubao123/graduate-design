@@ -1,0 +1,33 @@
+{% extends '../layout.html' %}
+{% block main %}
+<div>
+    <div id="mySetWrap">
+        {% if userInfo._id %}
+        <h1>我的收藏</h1>
+        <h2>喜欢的酒店</h2>
+        <ul style="overflow:hidden;clear:both;">
+            {% for data in collectionData %}
+            <li><a href="/hoteldes?hotelid={{(data.collectionId).toString()}}"><img src="\{{data.url}}" alt=""></a>
+                <div id="descrip">
+                    <p>{{data.title}}</p>
+                    <span class="place">{{data.place}}</span>
+                    <span class="status2"> <a href="/mySet/myCollectionDel?collectionId={{(data.collectionId).toString()}}"><img src="/iconfont/shanchu.svg" alt=""></a>
+                    </span>
+                    <span class="money">{{data.money}}/桌</span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <ul style="overflow:hidden;clear:both;">
+            <li>
+                <h1>请先登录</h1> 
+            </li>
+        </ul>
+        {% endif %}  
+        <div id="backBtn-myset">
+            <a href="/mySet">返回设置</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

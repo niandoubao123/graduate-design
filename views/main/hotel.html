@@ -14,6 +14,18 @@
                            <div class="descrip">
                                <p>{{hotel.title}}</p>
                                <span class="place">{{hotel.place}}</span>
+                               {% if !userInfo._id %}
+                                    <span class="status1"><img src="/iconfont/shoucang2.svg" alt="">
+                                    </span>
+                               {% else %}
+                                    <span class="status"><img src="/iconfont/shoucang2.svg" alt="">
+                                    </span>
+                                    <input type="hidden" value="{{hotel.id}}" id="collectionId">
+                                    <input type="hidden" value="{{hotel.title}}" id="collectionId">
+                                    <input type="hidden" value="{{hotel.money}}" id="collectionId">
+                                    <input type="hidden" value="{{hotel.place}}" id="collectionId">
+                                    <input type="hidden" value="{{hotel.url}}" id="collectionId">
+                               {% endif %}
                                <span class="money">{{hotel.money}}/桌</span>
                            </div>
                        </li>

@@ -3,31 +3,34 @@
 $(function () {
          var $loginBox = $('#loginBox');
          var $registerBox = $('#registerBox');
-//注册
-   $('.zhucebtn').on('click', function () {
-       console.log("注册按钮")
-       //通过ajax提交请求
-       $.ajax({
-           type: 'post',
-           url: '/api/user/register',
-           data: {
-               username: $registerBox.find('[name="username"]').val(),
-               password: $registerBox.find('[name="password"]').val(),
-           },
-           dataType: 'json',
-           success: function (result) {
-               if (!result.code) {
-                   //注册成功
-                   setTimeout(function () {
-                      alert('注册成功');
-                   }, 1000);
-               }
+    //注册
+    $('.zhucebtn').on('click', function () {
+        console.log("注册按钮")
+            //通过ajax提交请求
+            $.ajax({
+                type: 'post',
+                url: '/api/user/register',
+                data: {
+                    username: $registerBox.find('[name="username"]').val(),
+                    password: $registerBox.find('[name="password"]').val(),
+                },
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result)
+                    if (!result.code) {
+                        //注册成功
+                        setTimeout(function () {
+                            alert('注册成功');
+                        }, 1000);
+                    }else{
+                        alert(result.message)
+                    }
 
-           }
-       });
-   });
+                }
+            });
+    });
 //    登录
-$('.nav-top-left span').click(function () {
+$('#dian').click(function () {
     console.log("aa")
     $('.loginwrap').css('display', 'block');
     $('.denglubtn').click(function () {
@@ -40,7 +43,7 @@ $('.nav-top-left span').click(function () {
                },
                dataType: 'json',
                success: function (result) {
-                     alert(result.message);         
+                    alert(result.message);         
                    if (!result.code) {    
                       $('.loginwrap').css('display', 'none');
                       $('.nav-top-left a').hide();

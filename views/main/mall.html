@@ -14,15 +14,27 @@
                   <div class="lvpai-bottom">
                         {% for lvpai in lvpais %}
                         <div class="lvpai-bottom-show lvpai-bottom-one">
-                            <a href="/lvpaides?lvpaiid={{lvpai.id}}">
+                                <a href="/lvpaides?lvpaiid={{lvpai.id}}">
                                 <img src="/{{lvpai.url}}" alt="" />
+                                </a>
                                 <div class="meng2"></div>
                                 <div class="lvpai-bottom-xia">
                                     <p class="lvpai-btitle">{{lvpai.title}}</p>
                                     <p class="lvpai-bstore">{{lvpai.place}}</p>
                                     <span class="lvpai-bmoney">{{lvpai.money}}</span>
+                                    {% if !userInfo._id %}
+                                    <span class="status1">预定<img src="/iconfont/tianjia.svg" alt="">
+                                    </span>
+                                    {% else %}
+                                    <span class="status">预定<img src="/iconfont/tianjia.svg" alt="">
+                                    </span>
+                                    <input type="hidden" value="{{lvpai.id}}" id="collectionId">
+                                    <input type="hidden" value="{{lvpai.title}}" id="collectionId">
+                                    <input type="hidden" value="{{lvpai.money}}" id="collectionId">
+                                    <input type="hidden" value="{{lvpai.place}}" id="collectionId">
+                                    <input type="hidden" value="{{lvpai.url}}" id="collectionId">
+                                    {% endif %}
                                 </div>
-                            </a>
                         </div>
                         {% endfor %}
                   </div>

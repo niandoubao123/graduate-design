@@ -1,0 +1,27 @@
+{% extends '../layout.html' %}
+{% block main %}
+<div id="myAddressWrap">
+    <h1>编辑个人信息</h1>
+    {% if userInfo._id %}
+    <form action="/mySet/myInfoEdit" method="post">
+        <div id="addressCss" style="position: relative;">
+            <div class="address-name">
+                <h2 style="margin-top: 0;">用户名:</h2>
+                <input type="text" name="username" value="{{data.username}}">
+                <input type="hidden" name="userId" value="{{data._id.toString()}}">
+            </div>
+            <div class="address-phone">
+                <h2 style="margin-top: 0;">密码:</h2>
+                <input type="text" name="password" value="{{data.password}}" />
+            </div>
+            <button type="submit" class="btn btn-success btn-lg" id="btn-address">修改</button>
+        </div>
+    </form>
+    <div id="backBtn-myset" style="margin-top: 200px;">
+        <a href="/mySet/info">返回列表</a>
+    </div>
+    {% else %}
+    <h1>请先登录</h1>
+    {% endif %}
+</div>
+{% endblock %}

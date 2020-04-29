@@ -1,0 +1,33 @@
+{% extends '../layout.html' %}
+{% block main %}
+<div id="myAddressWrap">
+    {% if userInfo._id %}
+    <ul id="addressList">
+        {% for address in addresses %}
+        <li>
+            <div>
+                <p>
+                <span>姓名:<a>{{address.addressName}}</a></span>
+                <span>电话号码:<a>{{address.addressPhone}}</a></span>
+                <span>详细地址:<a>{{address.addressDes}}</a></span>
+                <span >
+                    <a href="/mySet/addressEdit?addressId={{address._id.toString()}}">修改</a>
+                    <a href="/mySet/addressDel?addressId={{address._id.toString()}}">删除</a>
+                    <a href="/thingsCar?addressId={{address._id.toString()}}">选择</a>
+                </span>
+                </p>
+            </div>    
+        </li>
+        {% endfor %}
+    </ul>
+     <div id="backBtn-myset" style="margin-top: 150px;">
+         <a href="/mySet/addressAdd">新增地址</a>
+     </div>
+     <div id="backBtn-myset" style="margin-top: 150px;">
+         <a href="/mySet">返回设置</a>
+     </div>
+    {% else %}
+    <h1>请先登录</h1>
+    {% endif %}
+</div>
+{% endblock %}

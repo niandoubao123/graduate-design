@@ -114,6 +114,7 @@
     border-bottom: 2px solid transparent;
     border-bottom-color: rgb(248, 50, 68);
 }
+
 .invite {
     position: relative;
 }
@@ -189,9 +190,10 @@
     height: 80px;
     line-height: 80px;
     margin: 0 auto;
-     font-size: 18px;
-     font-weight: bolder;
+    font-size: 18px;
+    font-weight: bolder;
 }
+
 /* 锚点开始 */
 .maodian {
     width: 50px;
@@ -246,69 +248,97 @@
 
 /* 锚点结束 */
 /* 酒店开始 */
-.jiudian-wrap{
+.jiudian-wrap {
     width: 100%;
-    height:auto;
+    height: auto;
 }
-.jiudian{
+
+.jiudian {
     width: 1200px;
     min-width: 1200px;
-    height:auto;
-    margin:0 auto;
+    height: auto;
+    margin: 0 auto;
 }
-.jiudian h1{
+
+.jiudian h1 {
     width: 1200px;
     height: 80px;
     line-height: 80px;
     text-align: center;
-    color:#333;
+    color: #333;
     font-size: 32px;
 }
-.jiudian ul{
+
+.jiudian ul {
     width: 1200px;
     height: auto;
 }
-.jiudian ul li{
+
+.jiudian ul li {
     float: left;
     width: 280px;
     margin-left: 26px;
     cursor: pointer;
     margin-bottom: 20px;
 }
-.jiudian ul li:nth-child(4n+1){
+
+.jiudian ul li:nth-child(4n+1) {
     margin-left: 0;
 }
-.jiudian ul li img{
+
+.jiudian ul li img {
     width: 280px;
     height: 180px;
 }
-.jiudian .descrip{
+
+.jiudian .descrip {
     width: 278px;
     height: 60px;
     position: relative;
-    border:1px solid#e8e8e8;
+    border: 1px solid#e8e8e8;
 }
-.descrip p{
+
+.descrip p {
     width: 238px;
     height: 40px;
     line-height: 40px;
     padding: 0 20px;
     font-size: 15px;
 }
-.descrip .place{
+
+.descrip .place {
     font-size: 13px;
     position: absolute;
     left: 20px;
     bottom: 10px;
 }
-.descrip .money{
+
+.descrip .status,
+.descrip .status1 {
+    display: block;
+    width: 60px;
+    height: 25px;
+    position: absolute;
+    left: 160px;
+    bottom: 4px;
+}
+
+.descrip .status img,
+.descrip .status1 img {
+    width: 20px;
+    height: 20px;
+    left: 10px;
+}
+
+.descrip .money {
     font-size: 15px;
-    color:#ff6767;
+    color: #ff6767;
     font-weight: bolder;
     position: absolute;
     right: 20px;
     bottom: 10px;
 }
+
 /* 酒店结束 */
 /* footer开始 */
 .foot-wrap {

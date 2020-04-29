@@ -1,0 +1,34 @@
+{% extends '../layout.html' %}
+{% block main %}
+<div>
+    <div id="mySetWrap">
+        <h1>我的设置</h1>
+        <a href="/mySet/myCollection">
+            <span id="beforePic"><img src="/iconfont/shoucang2.svg" alt=""></span>
+            我的收藏
+            <span id="afterPic"><img src="/iconfont/gengduo.svg"alt="" ></span>
+        </a>
+        <a href="/mySet/address">
+            <span id="beforePic"><img src="/iconfont/dizhi.svg" alt=""></span>
+            我的地址
+            <span id="afterPic"><img src="/iconfont/gengduo.svg" alt="" ></span>
+        </a>
+        <a href="/order-list">
+            <span id="beforePic"><img src="/iconfont/dingdan.svg" alt=""
+                    style="width: 20px;height: 20px;"></span>
+            我的订单
+            <span id="afterPic"><img src="/iconfont/gengduo.svg" alt=""
+                    style="width: 20px;height: 20px;"></span>
+        </a>
+        <a href="/mySet/info">
+            <span id="beforePic"><img src="/iconfont/personal.svg" alt=""></span>
+            个人信息
+            <span id="afterPic"><img src="/iconfont/gengduo.svg" alt=""></span>
+        </a>
+        <div id="backBtn-myset">
+            <a href="/">返回首页</a>
+        </div>
+       
+    </div>
+</div>
+{% endblock %}

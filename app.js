@@ -48,11 +48,11 @@ app.set('view engine', 'html');
 swig.setDefaults({
     cache: false
 });
-
-app.use('/admin', require('./routers/admin'))
-app.use('/api', require('./routers/api'))
-app.use('/', require('./routers/main'))
-
+//分配路由
+app.use('/admin', require('./routers/admin'))//后台页面
+app.use('/api', require('./routers/api'))//api数据请求
+app.use('/', require('./routers/main'))//前台页面
+//连接mongoDB数据库
 mongoose.connect('mongodb://localhost:27017/bishe', function (err) {
     if (err) {
         console.log("数据库链接失败")

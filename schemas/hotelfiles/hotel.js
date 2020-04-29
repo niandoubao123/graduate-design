@@ -5,5 +5,9 @@ module.exports = new mongoose.Schema({
     place:String,
     money:String,
     title: String,
-    url: String
+    url: String,
+    status:{
+        type:Boolean,
+        default:false
+    }
 })

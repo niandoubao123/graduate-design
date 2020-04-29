@@ -1,0 +1,250 @@
+/* 设置首页 */
+#mySetWrap{
+    width: 1200px;
+    margin:0 auto;
+    height: auto
+}
+#mySetWrap a{
+    color:#333;
+}
+#mySetWrap h1{
+    width: 1200px;
+    margin-top: 100px;
+    height: 100px;
+    font-size:30px;
+    text-align: center;
+    line-height: 100px;
+}
+#mySetWrap>a{
+    display: block;
+    width: 1200px;
+    height: 100px;
+    font-size:25px;
+    text-align:left;
+    line-height: 100px;
+    border-bottom:1px solid #999
+}
+#mySetWrap>a #beforePic{
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+}
+#mySetWrap>a #afterPic{
+    width: 20px;
+    height: 20px;
+    margin-left: 1000px;
+}
+#mySetWrap>a>span img{
+    width: 20px;
+    height: 20px;
+}
+#backBtn-myset{
+    border:none;
+    margin:0 auto;
+    width: 100px;
+    height: 40px;
+    background:#ff6767;
+    text-align:center;
+    line-height: 40px;
+    border-radius: 8px;
+    margin-top: 80px;
+}
+#backBtn-myset a{
+    color:white;
+    font-size:18px
+}
+/* 我的收藏 */
+#mySetWrap ul li {
+    float: left;
+    width: 280px;
+    margin-left: 26px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#mySetWrap ul li:nth-child(4n+1) {
+    margin-left: 0;
+}
+
+#mySetWrap ul li img {
+    width: 280px;
+    height: 180px;
+}
+
+#mySetWrap #descrip {
+    width: 278px;
+    height: 60px;
+    position: relative;
+    border: 1px solid#e8e8e8;
+}
+
+#descrip p {
+    width: 238px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    font-size: 15px;
+}
+
+#descrip .place {
+    font-size: 13px;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+}
+
+#descrip .status,
+#descrip .status1,
+#descrip .status2{
+    display: block;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 170px;
+    bottom: 4px;
+}
+
+#descrip .status img,
+#descrip .status1 img ,
+#descrip .status2 img 
+{
+    width: 20px;
+    height: 20px;
+}
+
+#descrip .money {
+    font-size: 15px;
+    color: #ff6767;
+    font-weight: bolder;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}
+/* 个人信息 */
+#myInfoWrap {
+    width:1200px;
+    margin:0 auto;
+    margin-top: 150px;
+    height:auto;
+}
+#myInfoWrap>h1{
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+}
+#myInfo{
+    width:1000px;
+}
+#myInfo li{
+    width:1000px;
+    height: 80px;
+    margin-left: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #999;
+}
+#myInfo li div{
+    width: 500px;
+    height: 80px;
+    line-height: 80px;
+}
+#myInfo li div:nth-child(2){
+    text-align: right;
+}
+/* 我的地址 */
+#myAddressWrap{
+    width:1200px;
+    min-height:300px;
+    margin:0 auto;
+    margin-top: 150px;
+    height:auto;
+}
+#myAddressWrap>h1{
+    text-align: center;
+    line-height: 80px;
+    font-size: 25px;
+    margin-top: 10px;
+}
+#addressCss>div{
+    width:100%;
+    height:100px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+#addressCss>div h2{
+    display: flex;
+    width:200px;
+    border-left:2px solid #ff6767;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+#addressCss>div input{
+    width:200px;
+    height:40px;
+    margin-left: 50px;
+    border-radius: 20px;
+    border:1px solid #999;
+}
+#addressCss>div textarea{
+    width: 700px;
+    height: 25px;
+    margin-left: 50px;
+    border-radius: 20px;
+    border:1px solid #999;
+}
+#btn-address{
+    position: absolute;
+    top: 350px;
+    left:50%;
+    margin-left: -75px;
+}
+
+#addressList{
+    width:100%;
+    height:auto;
+}
+#addressList li{
+    width:100%;
+    height:50px;
+    padding:20px 0;
+}
+#addressList>li>div{
+    padding:0 50px;
+    height: 50px;
+    border-left:2px solid #ff6767;
+}
+#addressList>li>div>p{
+    height: 50px;
+    display: flex;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: bolder;
+    align-items: center;
+}
+#addressList>li>div>p span{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+}
+#addressList>li>div>p span a{
+    font-size: 15px;
+    font-weight: lighter;
+    letter-spacing: normal;
+}
+#addressList>li>div>p span:nth-child(1){
+    width:150px;
+}
+#addressList>li>div>p span:nth-child(2) {
+    width: 250px;
+}
+#addressList>li>div>p span:nth-child(3) {
+    width: 550px;
+}
+#addressList>li>div>p span:nth-child(4) {
+    width: 120px;
+    text-align: right;
+}

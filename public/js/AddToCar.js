@@ -10,11 +10,12 @@ $('.jhcd ul li .Add').each(function (idx, item) {
                  userid: $('.jhcd ul li').eq(idx).find('#userId').val(),
                  goodstitle: $('.jhcd ul li').eq(idx).find('#goodsTitle').val(),
                  goodsurl: $('.jhcd ul li').eq(idx).find('#goodsUrl').val(),
-                 goodsmoney: $('.jhcd ul li').eq(idx).find('#goodsMoney').val()
+                 goodsmoney: $('.jhcd ul li').eq(idx).find('#goodsMoney').val(),
              },
              success: function (responseData) {
                 //  console.log(responseData);
-                 renderGood(responseData.data.goods);
+                renderGood(responseData.data.goods);
+                alert(responseData.message)
              }
          })
     })
@@ -28,11 +29,12 @@ $('.jhyp ul li .Add').each(function (idx, item) {
                 userid: $('.jhyp ul li').eq(idx).find('#userId').val(),
                 goodstitle: $('.jhyp ul li').eq(idx).find('#goodsTitle').val(),
                 goodsurl: $('.jhyp ul li').eq(idx).find('#goodsUrl').val(),
-                goodsmoney: $('.jhyp ul li').eq(idx).find('#goodsMoney').val()
+                goodsmoney: $('.jhyp ul li').eq(idx).find('#goodsMoney').val(),
             },
             success: function (responseData) {
                 // console.log(responseData);
                 renderGood(responseData.data.goods);
+                alert(responseData.message)
             }
         })
     })
@@ -56,10 +58,13 @@ function renderGood(goods){
     }
    for(var i = 0;i<goods.length;i++){
        html += '<li><div><img src="'+goods[i].goodsUrl+'" alt=""></div><div>' + goods[i].goodsTitle + '</div><div>' + goods[i].goodsMoney + '</div>'+
-       '<div> <a href="/addCar/delete?title='+goods[i].goodsTitle+'">删除</a ></div></li>'
-       money += Number(goods[i].goodsMoney.split('￥')[1]);
+       '<div>'+goods[i].num+'</div><div> <a href="/addCar/delete?title='+goods[i].goodsTitle+'">删除</a ></div></li>'
+       money += Number(goods[i].goodsMoney.split('￥')[1]) * goods[i].num;
     }
-    $('.car .sumshu span').html(goods.length)
+    let Sum = goods.reduce((total,item)=>{
+        return total+=item.num
+    },0)
+    $('.car .sumshu span').html(Sum)
     $('.car .summoney span').html(money)
     $('.car-wrap .car ul').html(html);
 }

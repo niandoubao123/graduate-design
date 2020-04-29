@@ -89,9 +89,9 @@
                     <ul>
                         <li><a href="/dengji"><img src="images/nbx1.png" alt=""/><p>婚礼登记</p></a></li>
                         <li><a href="/rili"><img src="images/nbx2.png" alt=""/><p>结婚吉日</p></a></li>
-                        <li><a ><img src="images/nbx3.png" alt=""/><p>结婚流程</p></a></li>
+                        <!-- <li><a ><img src="images/nbx3.png" alt=""/><p>结婚流程</p></a></li>
                         <li><a href="###"><img src="images/nbx8.png" alt=""/><p>婚礼歌曲</p></a></li>
-                        <li><a href="###"><img src="images/nbx5.png" alt=""/><p>结婚任务</p></a></li>
+                        <li><a href="###"><img src="images/nbx5.png" alt=""/><p>结婚任务</p></a></li> -->
                     </ul></div>
             </div>
             <div class="nbxbottom">
@@ -127,13 +127,25 @@
             <div class="lvpai-bottom-show lvpai-bottom-one">
                 <a href="/lvpaides?lvpaiid={{lvpai.id}}">
                 <img src="/{{lvpai.url}}" alt="" />
+                </a>
                 <div class="meng2"></div>
                 <div class="lvpai-bottom-xia">
-                    <p class="lvpai-btitle">{{lvpai.title}}</p>
+                    <p class="lvpai-btitle" style="text-overflow: clip;">{{lvpai.title}}</p>
                     <p class="lvpai-bstore">{{lvpai.place}}</p>
                     <span class="lvpai-bmoney">{{lvpai.money}}</span>
+                    {% if !userInfo._id %}
+                    <span class="status1">预定<img src="/iconfont/tianjia.svg" alt="">
+                    </span>
+                    {% else %}
+                    <span class="status">预定<img src="/iconfont/tianjia.svg" alt="">
+                    </span>
+                    <input type="hidden" value="{{lvpai.id}}" id="collectionId">
+                    <input type="hidden" value="{{lvpai.title}}" id="collectionId">
+                    <input type="hidden" value="{{lvpai.money}}" id="collectionId">
+                    <input type="hidden" value="{{lvpai.place}}" id="collectionId">
+                    <input type="hidden" value="{{lvpai.url}}" id="collectionId">
+                    {% endif %}
                 </div>
-                </a>
             </div>
            {% endfor %}
          </div>
@@ -191,7 +203,7 @@
     </div>
     <!--婚礼案例结束-->
     <!--结婚流程-->
-    <div id="go6" class="process-wrap" style="margin-bottom: 50px;">
+    <div id="go4" class="process-wrap" style="margin-bottom: 50px;">
           <div class="process">
                 <div class="process-title">
                     <h1>结婚流程</h1>
@@ -235,7 +247,7 @@
                           </a>
                       </li>
                       <li>
-                           <a href=/things">
+                           <a href="/things">
                           <span></span>
                           <p>结婚用品</p>
                           </a>

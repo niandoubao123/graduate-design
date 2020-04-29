@@ -23,12 +23,16 @@ var Hotel = require('../models/hotelfiles/Hotel');
 var ShowPic = require('../models/showPicfiles/ShowPic');
 var IdeaOne = require('../models/ideafiles/IdeaOne');
 var IdeaTwo = require('../models/ideafiles/IdeaTwo');
+var User = require('../models/User')
+var Address = require('../models/Address')
+var Collection = require('../models/collection')
 
 ///////////////////////////////////支付//////////////////////////////////////////////////////
 const path = require("path");
 // 前端响应要创建订单的数据对象
 router.get('/payinfo', (req, res) => {
     let data = req.query;
+    console.log(data)
     // 做一个简单的商品判断
     if (data) {
         res.send(Object.assign(data, {
@@ -106,13 +110,13 @@ router.use(function (req, res, next) {
         beautys: []
     }
     Lvpai.find().then(function (lvpais) {
-         data.lvpais = lvpais;
+        data.lvpais = lvpais;
      })
     City.find().then(function (citys) {
         data.citys = citys;
     })
     Beauty.find().then(function (beautys) {
-         data.beautys = beautys;
+        data.beautys = beautys;
      })
     Pic.find().then(function (pics) {
         data.pics = pics;
@@ -206,6 +210,7 @@ router.get('/order-list', function (req, res, next) {
 })
 //婚品购买购物车展示页面
 router.get('/thingsCar', function (req, res, next) {
+    console.log(req.query.addressId || '')
     if (req.url == '/things') {
         res.redirect('/things');
     } else {
@@ -216,12 +221,15 @@ router.get('/thingsCar', function (req, res, next) {
                 ThingsOne.find().then(function (thingsOnes) {
                     ThingsTwo.find().then(function (thingsTwos) {
                         AddCar.find({username:req.userInfo.username}).then(function(addCars){
-                        res.render("main/thingsfiles/thingsCar", {
-                            userInfo: req.userInfo, //将信息给模板,首页
-                            thingsOnes: thingsOnes,
-                            thingsTwos: thingsTwos,  
-                            addCars:addCars   
-                        });
+                        Address.findOne({_id:req.query.addressId}).then((address)=>{
+                            res.render("main/thingsfiles/thingsCar", {
+                                userInfo: req.userInfo, //将信息给模板,首页
+                                thingsOnes: thingsOnes,
+                                thingsTwos: thingsTwos,
+                                addCars: addCars,
+                                address:address
+                            });
+                        })
                         })
                     })
                 })   
@@ -625,4 +633,175 @@ router.get('/photodes', function (req, res) {
     }
 
 });
+//进入设置页面
+router.get('/mySet', function (req, res) {  
+    res.render('main/myset/mySet', {
+        userInfo: req.userInfo,
+    });
+});
+//我的收藏
+router.get('/mySet/myCollection',(req,res)=>{
+   Collection.findOne({username:req.userInfo.username}).then((data)=>{
+        if(data!=null){
+            res.render('main/myset/myCollection', {
+                userInfo: req.userInfo,
+                collectionData: data.goods
+            });
+        }else{
+            res.render('main/myset/myCollection', {
+                userInfo: req.userInfo,
+                collectionData: ''
+            });
+        }
+    
+   })
+})
+//我的收藏删除
+router.get('/mySet/myCollectionDel',(req,res)=>{
+    Collection.findOne({
+        username:req.userInfo.username
+    }).then((data)=>{
+        let index = data.goods.findIndex(item=>item.id==req.query.collectionId);
+        data.goods.splice(index,1)
+        data.markModified('goods');
+        return data.save()
+    }).then((rs)=>{
+        res.render('main/success', {
+            userInfo: req.userInfo,
+            message: '取消收藏',
+            url: '/mySet/myCollection'
+        });
+    })
+})
+//个人信息
+router.get('/mySet/info',(req,res)=>{
+    User.findOne({
+        _id:req.userInfo._id
+    }).then((data)=>{
+        res.render('main/myset/myInfo', {
+            userInfo: req.userInfo,
+            info:data
+        })
+    })
+    
+})
+//修改个人信息页面
+router.get('/mySet/myInfoEdit',(req,res)=>{
+    User.findOne({
+        username:req.query.username
+    }).then((data)=>{
+        res.render('main/myset/myInfoEdit', {
+            userInfo: req.userInfo,
+            data: data
+        })
+    })
+})
+//个人信息修改保存
+router.post('/mySet/myInfoEdit',(req,res)=>{
+    console.log(req.body)
+    User.updateOne({
+        _id:req.body.userId
+    },{username:req.body.username,password:req.body.password},function(err,data){
+        if(!err){
+            res.render('main/success', {
+                userInfo: req.userInfo,
+                message: '信息修改成功',
+                url: '/mySet/info'
+            });
+        }
+    })
+})
+//我的地址
+router.get('/mySet/address',(req,res)=>{
+    Address.find({
+        userName:req.userInfo.username
+    }).then((addresses) => {
+        res.render('main/myset/address', {
+            userInfo: req.userInfo,
+            addresses: addresses
+        })
+    })
+})
+//添加地址页面
+router.get('/mySet/addressAdd', (req, res) => {
+    res.render('main/myset/addressAdd', {
+        userInfo: req.userInfo,
+    })
+})
+//添加地址
+router.post('/mySet/addressAdd', (req, res) => {
+    console.log(req.body)
+    Address.findOne({
+        userName:req.userInfo.username,
+        addressName:req.body.addressName,
+        addressPhone:req.body.addressPhone,
+        addressDes:req.body.addressDes
+    },function(err,rs){
+        if(rs){
+            console.log(rs)
+            res.render('main/success', {
+                userInfo: req.userInfo,
+                message: '地址已经存在'
+            });
+            return;
+        }else{
+            return new Address({
+                userName: req.userInfo.username,
+                addressName: req.body.addressName,
+                addressPhone: req.body.addressPhone,
+                addressDes: req.body.addressDes
+            }).save()
+        }
+    }).then((err,data)=>{
+        if(!err){
+            res.render('main/success', {
+                userInfo: req.userInfo,
+                message: '地址添加成功',
+                url: '/mySet/address'
+            });
+        }
+    })
+})
+//删除地址
+router.get('/mySet/addressDel',(req,res)=>{
+    console.log(req.query.addressId)
+    Address.deleteOne({
+        _id: req.query.addressId
+    }).then((data)=>{
+        res.render('main/success', {
+            userInfo: req.userInfo,
+            message: '地址删除成功',
+            url: '/mySet/address'
+        });
+    })
+})
+//编辑地址
+router.get('/mySet/addressEdit', (req, res) => {
+    Address.findOne({
+        _id:req.query.addressId
+    }).then((data)=>{
+        res.render('main/myset/addressEdit', {
+            userInfo: req.userInfo,
+            data:data
+        })
+    })  
+})
+//修改地址保存
+router.post('/mySet/addressEdit',(req,res)=>{
+    Address.updateOne({
+        _id:req.body.addressId
+    },{
+        addressName:req.body.addressName,
+        addressPhone:req.body.addressPhone,
+        addressDes:req.body.addressDes
+    },function(err,data){
+        if(!err){
+            res.render('main/success', {
+                userInfo: req.userInfo,
+                message: '地址修改成功',
+                url: '/mySet/address'
+            });
+        }
+    })
+})
 module.exports = router;

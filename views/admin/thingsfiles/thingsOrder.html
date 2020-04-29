@@ -48,11 +48,12 @@
                  <th>用户名</th>
                  <th>总金额</th>
                  <th>支付状态</th>
-                 <th>收获地址</th>
+                 <th >收获地址</th>
                  {% for good in order.goods %}
                  <th>商品名</th>
                  <th style="width: 100px;">商品图品</th>
                  <th>商品价格</th>
+                 <th>商品数量</th>
                  {% endfor %}
                  <th>操作</th>
              </tr>
@@ -67,6 +68,7 @@
                  <td><img src="{{good.goodsUrl}}" alt="" style="height:100px;height: 100px;border-radius: 10px;">
                  </td>
                  <td>{{good.goodsMoney}}</td>
+                 <td>{{good.num}}</td>
                  {% endfor %}
                  <td>
                      <a href="/admin/thingsOrder/delete?id={{order._id.toString()}}"><i

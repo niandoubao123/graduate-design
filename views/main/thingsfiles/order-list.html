@@ -17,6 +17,7 @@
                <th style="width: 80px;">商品名</th>
                <th style="width: 100px;">商品图品</th>
                <th style="width: 80px;">商品价格</th>
+               <th style="width: 80px;">商品数量</th>
                {% endfor %}
            </tr>
 
@@ -30,11 +31,15 @@
                <td><img src="{{good.goodsUrl}}" alt="" style="height:100px;height: 100px;border-radius: 10px;margin-top: 20px;">
                </td>
                <td style="width: 80px;text-align: center;">{{good.goodsMoney}}</td>
+               <td style="width: 80px;text-align: center;">{{good.num}}</td>
                {% endfor %}
            </tr>
            {% endfor %}
        </table>
     </div>
+</div>
+<div id="backBtn-myset">
+    <a href="javascript:history.go(-1)">返回首页</a>
 </div>
 {% else %}
 <div class="car-wrap" id='gobot' style="margin-top: 100px;">

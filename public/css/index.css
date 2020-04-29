@@ -20,7 +20,7 @@
     line-height: 30px;
     font-size: 12px;
 }
-.colDark{
+#colDark{
     color:#ff6767;
     font-size: 13px;
 }
@@ -68,7 +68,7 @@
 }
 .nav-top-right{
     float: right;
-    width: 900px;
+    width: 870px;
     height: 30px;
     padding-right: 10px;
     cursor: pointer;

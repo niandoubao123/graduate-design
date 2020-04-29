@@ -1,0 +1,32 @@
+{% extends '../layout.html' %}
+{% block main %}
+<div id="myAddressWrap">
+    <h1>编辑地址</h1>
+    {% if userInfo._id %}
+    <form action="/mySet/addressEdit"  method="post">
+        <div id="addressCss" style="position: relative;">
+            <div class="address-name">
+                <h2 style="margin-top: 0;">收货人姓名:</h2>
+                <input type="text" name="addressName" value="{{data.addressName}}">
+                <input type="hidden" name="addressId" value="{{data._id.toString()}}">
+            </div>
+            <div class="address-phone">
+                <h2 style="margin-top: 0;">电话号码:</h2>
+                <input type="text" name="addressPhone" value="{{data.addressPhone}}" />
+            </div>
+            <div class="address-address">
+                <h2 style="margin-top: 0;">收货地址:</h2>
+                <input name="addressDes" value="{{data.addressDes}}" style="margin-top: 0;width:500px;">
+                </input>
+            </div>
+            <button type="submit" class="btn btn-success btn-lg" id="btn-address">修改</button>
+        </div>
+    </form>
+    <div id="backBtn-myset" style="margin-top: 150px;">
+        <a href="/mySet/address">返回列表</a>
+    </div>
+    {% else %}
+    <h1>请先登录</h1>
+    {% endif %}
+</div>
+{% endblock %}
